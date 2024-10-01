@@ -1,0 +1,30 @@
+NO ./assets/Alic3D/wall_n.xpm
+SO ./assets/Alic3D/wall_n.xpm
+WE ./assets/Alic3D/wall_n.xpm
+EA ./assets/Alic3D/wall_n_2.xpm
+
+
+
+F 20,100,0
+
+
+
+
+
+
+
+C 200,30,200
+
+
+
+11111111111
+101010010001    111
+1100100011111111011
+100000N0000000000011
+100000000111111111
+11111111111
+111111
+111
+1
+111
+1111

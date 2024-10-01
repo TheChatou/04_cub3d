@@ -1,0 +1,35 @@
+Loading intro 0
+Loading intro 1
+Loading intro 2
+Loading intro 3
+Loading intro 4
+Loading screen started
+Loading screen loop
+Loading screen 0
+Loading screen 1
+Loading screen 2
+Loading screen 3
+Loading screen 0
+Loading screen 1
+Loading screen 2
+Loading screen 3
+Loading screen 0
+Loading screen 1
+Loading screen 2
+Loading screen 3
+Loading screen 0
+Loading screen 1
+Loading screen 2
+Loading screen 3
+Loading screen 0
+Loading screen 1
+Loading screen 2
+Loading screen 3
+Loading screen 0
+Loading screen 1
+Loading screen 2
+is_loading = 0
+Loading ended
+Loop ended
+is_loading = 0
+Game loop
