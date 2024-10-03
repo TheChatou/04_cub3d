@@ -6,7 +6,7 @@
 #    By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 14:50:30 by fcoullou          #+#    #+#              #
-#    Updated: 2024/09/25 15:04:34 by fcoullou         ###   ########.fr        #
+#    Updated: 2024/10/03 18:01:40 by fcoullou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,9 +126,9 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											utils.c) \
 				$(addprefix $(SRC_PATH)raycasting/, \
 											init_00_ray_n_img.c \
-											raycasting_00_set_n_cast.c \
-											raycasting_01_calc.c \
-											raycasting_02_draw.c \
+											raycasting_00_set_n_cast_bonus.c \
+											raycasting_01_calc_bonus.c \
+											raycasting_02_draw_bonus.c \
 											raycasting_03_utils.c) \
 				$(addprefix $(SRC_PATH)start_n_init/, \
 											init_00_player.c \

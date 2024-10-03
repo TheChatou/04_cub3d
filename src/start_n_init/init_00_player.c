@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 18:16:00 by chatou            #+#    #+#             */
-/*   Updated: 2024/09/25 14:53:48 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:39:20 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool	set_player(t_game *game, t_player *player)
 	*player = set_dir_n_plane(game->map);
 	player->pos = find_player_float(game->map);
 	player->height = 1.0;
-	player->view_height = 1.0;
+	player->shrink = 0.0;
 	player->lifes = 3;
 	return (true);
 }

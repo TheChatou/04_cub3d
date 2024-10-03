@@ -6,14 +6,31 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:04:10 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/24 14:16:37 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:00:31 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-bool	set_game(t_game *game, int level)
+bool	set_game(t_game *game, char *av, int level)
 {
+	game->map_file = ft_strdup(av);
+	if (!strcmp(game->map_file, LEVEL2_MAP))
+		game->level = 2;
+	else if (!strcmp(game->map_file, LEVEL1_MAP))
+		game->level = 1;
+	else
+		game->level = level;
+	ft_stock_map_tab(game->map_file, game);
+	if (ft_check_map(game->map_file, game))
+		return (false);
+	game->map->size.y = game->map->map_h;
+	game->map->size.x = game->map->map_w;
+	game->has_token = 1;
+	if (valid_path(game))
+		return (false);
+	if (pthread_mutex_init(&game->mutex, NULL) != 0)
+		return (ft_putstr_fd("Error\nCouldn't initialize the mutex\n", 2), false);
 	game->mlx = NULL;
 	game->mlx = mlx_init();
 	if (!game->mlx)
@@ -23,7 +40,6 @@ bool	set_game(t_game *game, int level)
 		return (ft_putstr_fd("Error\nCouldn't create the window\n", 2), false);
 	game->win.width = WIN_SIZE;
 	game->win.height = WIN_SIZE;
-	game->level = level;
 	init_cam(&game->cam);
 	init_img(&game->raycasted, WIN_SIZE);
 	init_img(&game->home_screen, WIN_SIZE);
@@ -40,7 +56,7 @@ bool	set_game(t_game *game, int level)
 	return (true);
 }
 
-bool	init_game(char *av, t_game *game)
+bool	init_game(t_game *game)
 {
 	ft_memset(game, 0, sizeof(t_game));
 	game->map = malloc(sizeof(t_map));
@@ -51,17 +67,6 @@ bool	init_game(char *av, t_game *game)
 		return (ft_putstr_fd("Error\nCouldn't allocate ray memory\n", 2), false);
 	if (game->map)
 		ft_memset(game->map, 0, sizeof(t_map));
-	game->map_file = ft_strdup(av);
-	ft_stock_map_tab(game->map_file, game);
-	if (ft_check_map(game->map_file, game))
-		return (false);
-	game->map->size.y = game->map->map_h;
-	game->map->size.x = game->map->map_w;
-	game->has_token = 1;
-	if (valid_path(game))
-		return (false);
-	if (pthread_mutex_init(&game->mutex, NULL) != 0)
-		return (ft_putstr_fd("Error\nCouldn't initialize the mutex\n", 2), false);
 	return (true);
 }
 

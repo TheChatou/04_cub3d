@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 15:58:19 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/24 14:14:15 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/03 14:59:10 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ bool	launch(t_game *game, char *av, int level)
 	if (!XInitThreads())
 		return (ft_putstr_fd("Error\nFailed to initialize X11 threads\n",
 				STDERR_FILENO), false);
-	if (init_game(av, game) && set_game(game, level))
+	if (init_game(game) && set_game(game, av, level))
 	{
 		set_hooks(game);
 		if (!display_home_screen(game, &game->home_screen))

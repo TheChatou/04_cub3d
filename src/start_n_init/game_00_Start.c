@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:37:38 by chatou            #+#    #+#             */
-/*   Updated: 2024/09/24 14:15:47 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/03 15:35:21 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 bool	launch(t_game *game, char *av, int level)
 {
 	(void)level;
-	if (init_game(av, game) && set_game(game, level))
+	if (init_game(game) && set_game(game, av, level))
 	{
 		set_hooks(game);
 		if (!display_home_screen(game, &game->home_screen))
@@ -61,12 +61,12 @@ int	game_loop(t_game *game)
 		return (ft_putstr_fd("Error\nUser interface\n", STDERR_FILENO), 1);
 	mlx_put_image_to_window(game->mlx, game->win.win, game->raycasted.ptr,
 		0, 0);
-	if (check_if_end(game))
-	{
-		if (game->level == 2)
-			you_win();
-		free_game(game);
-	}
+	// if (check_if_end(game))
+	// {
+	// 	if (game->level == 2)
+	// 		you_win();
+	// 	free_game(game);
+	// }
 	return (0);
 }
 

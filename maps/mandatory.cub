@@ -1,0 +1,14 @@
+NO ./assets/Mandatory/red.xpm
+SO ./assets/Mandatory/blue.xpm
+WE ./assets/Mandatory/yellow.xpm
+EA ./assets/Mandatory/green.xpm
+
+F 0, 0, 0
+C 255, 255, 255
+
+
+111111111111111111111
+100000000000000000001
+100000000W00000000001
+100000000000000000001
+111111111111111111111

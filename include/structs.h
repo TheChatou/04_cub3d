@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:35:12 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/09/25 14:42:08 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:25:38 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_player
 {
 	t_tri_point	pos;
 	double		height;
-	double		view_height;
+	double		shrink;
 	t_dpoint	dir;
 	t_dpoint	plane;
 	t_mouse		mouse;

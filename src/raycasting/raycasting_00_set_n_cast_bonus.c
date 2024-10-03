@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 19:19:32 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/03 18:12:17 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/09/13 14:43:58 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,14 @@ bool	raycasting(t_game *game)
 	{
 		init_ray(game->ray);
 		set_ray(game, x);
-		cast_ray(game, game->ray, NULL, NULL);
+		cast_ray(game, game->ray, &game->ray->token, &game->ray->btrap);
 		calc_rays(game->ray, &game->player, game);
 		draw_line(game, game->ray, game->raycasted, x);
 		x++;
 	}
+	pthread_mutex_lock(&game->mutex);
+	game->is_loading = false;
+	pthread_mutex_unlock(&game->mutex);
 	return (true);
 }
 
@@ -93,8 +96,6 @@ void	set_ray_step(t_ray *ray, t_player *player)
 // du rayon.
 void	cast_ray(t_game *game, t_ray *ray, t_line *tk, t_line *btrap)
 {
-	(void)tk;
-	(void)btrap;
 	while (ray->hit == 0)
 	{
 		if (ray->side_dist.x < ray->side_dist.y)
@@ -115,7 +116,7 @@ void	cast_ray(t_game *game, t_ray *ray, t_line *tk, t_line *btrap)
 			else
 				ray->side = E_SIDE;
 		}
-		ray_hit_check(game, ray, NULL, NULL);
+		ray_hit_check(game, ray, tk, btrap);
 	}
 }
 
