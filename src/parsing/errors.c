@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/02 16:13:04 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/08/02 16:16:09 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:18:52 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_error_map(t_game *game, char *str)
 		free(line);
 		line = get_next_line(game->map_fd);
 	}
-	exit(EXIT_FAILURE);
+	destroy_game(game);
 }
 
 void	ft_error_map1(char *str, t_game *game)
@@ -38,5 +38,5 @@ void	ft_error_map1(char *str, t_game *game)
 		free(line);
 		line = get_next_line(game->map_fd);
 	}
-	exit(EXIT_FAILURE);
+	destroy_game(game);
 }

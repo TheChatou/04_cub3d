@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:15:25 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/10 14:14:13 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/10 14:32:28 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ bool	check_if_end(t_game *game)
 
 bool	check_if_dead(t_game *game)
 {
-	if (game->player.lifes == 0)
+	if (game->player.lifes <= 0)
 		return (true);
 	return (false);
 }

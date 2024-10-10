@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing_map1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 17:29:18 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/11 14:54:24 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/10 14:57:52 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	get_map_size(t_game *game, char *map_file)
 
 	game->map_fd = open(map_file, O_RDONLY);
 	if (game->map_fd == -1)
-		return (ft_error_map1("Error: can't open the map!\n", game), 1);
+		return (ft_error_map1("Error: can't open the map!", game), 1);
 	line = get_next_line(game->map_fd);
 	while (line != NULL)
 	{
@@ -46,10 +46,10 @@ int	ft_stock_map_tab(char *map_file, t_game *game)
 	get_map_size(game, map_file);
 	game->map_fd = open(map_file, O_RDONLY);
 	if (game->map_fd == -1)
-		return (ft_error_map(game, "Error: can't open the map!\n"), 1);
+		return (ft_error_map(game, "Error: can't open the map!"), 1);
 	game->map->map = (char **)ft_calloc(game->map->map_h, sizeof(char *));
 	if (!game->map->map)
-		return (ft_error_map(game, "Malloc\n"), 1);
+		return (ft_error_map(game, "Malloc"), 1);
 	line = get_next_line(game->map_fd);
 	while (line != NULL)
 	{
@@ -57,7 +57,7 @@ int	ft_stock_map_tab(char *map_file, t_game *game)
 		{
 			game->map->map[i] = ft_strdup(line);
 			if (!game->map->map[i])
-				return (ft_error_map(game, "Malloc\n"), 1);
+				return (ft_error_map(game, "Malloc"), 1);
 			i++;
 		}
 		free(line);

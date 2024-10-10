@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:51:56 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/09/12 17:50:59 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/10 14:45:04 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,13 +43,13 @@ t_img	select_wall(t_game *game, t_ray *ray)
 	t_img	wall;
 
 	wall.ptr = NULL;
-	if (ray->side == 0)
+	if (ray->side == N_SIDE)
 		wall = game->i_wall_n;
-	else if (ray->side == 1)
+	else if (ray->side == S_SIDE)
 		wall = game->i_wall_s;
-	else if (ray->side == 2)
+	else if (ray->side == E_SIDE)
 		wall = game->i_wall_e;
-	else if (ray->side == 3)
+	else if (ray->side == W_SIDE)
 		wall = game->i_wall_w;
 	if (ray->is_door)
 		wall = game->i_door;

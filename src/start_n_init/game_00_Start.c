@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:37:38 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/10 14:20:37 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/10 15:02:24 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ bool	launch(t_game *game, char *av, int level)
 	(void)level;
 	if (init_game(game) && set_game(game, av, level))
 	{
-		set_hooks(game);
 		load_i_walls(game, game->map);
+		set_hooks(game);
 		if (!set_player(game, &game->player))
 			return (ft_putstr_fd("Error\nCouldn't initialize the player\n",
 					STDERR_FILENO), 1);
