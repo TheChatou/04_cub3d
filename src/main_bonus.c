@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 18:05:43 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/24 14:13:55 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/10 13:25:11 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int	launch_levels(t_game *game, char *level, int i)
 {
 	if (!launch(game, level, i))
 		return (destroy_game(game), 1);
-	game->level = i;
 	set_hooks(game);
 	mlx_loop(game->mlx);
 	return (0);

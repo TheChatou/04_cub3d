@@ -6,7 +6,7 @@
 #    By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 14:50:30 by fcoullou          #+#    #+#              #
-#    Updated: 2024/10/03 18:01:40 by fcoullou         ###   ########.fr        #
+#    Updated: 2024/10/10 14:17:18 by fcoullou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ SRC				= $(addprefix $(SRC_PATH), \
 											flood_fill_utils.c \
 											flood_fill.c) \
 				$(addprefix $(SRC_PATH)free/, \
-											free_00.c) \
+											free_00.c \
+											free_01.c) \
 				$(addprefix $(SRC_PATH)hooks/, \
 											hook_actions_utils.c \
 											hook_actions_00.c) \
@@ -53,6 +54,7 @@ SRC				= $(addprefix $(SRC_PATH), \
 				$(addprefix $(SRC_PATH)mouse/, \
 											mouse_tracking.c) \
 				$(addprefix $(SRC_PATH)moves/, \
+											bonus_managment.c \
 											control_moves.c \
 											life_management.c \
 											move_forward.c \
@@ -85,8 +87,7 @@ SRC				= $(addprefix $(SRC_PATH), \
 											utils_00.c \
 											utils_01.c \
 											utils_02_load_imgs.c \
-											utils_03_prints.c \
-											utils_04_ending.c)
+											utils_03_prints.c)
 
 SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											main_bonus.c) \
@@ -97,18 +98,19 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											flood_fill_utils_bonus.c \
 											flood_fill.c) \
 				$(addprefix $(SRC_PATH)free/, \
-											free_00.c) \
+											free_00.c \
+											free_01.c) \
 				$(addprefix $(SRC_PATH)hooks/, \
-											hook_actions_bonus.c) \
+											hook_actions_00_bonus.c) \
 				$(addprefix $(SRC_PATH)minimap/, \
 											minimap_utils.c \
 											minimap.c) \
 				$(addprefix $(SRC_PATH)mouse/, \
 											mouse_tracking.c) \
 				$(addprefix $(SRC_PATH)moves/, \
+											bonus_managment.c \
 											control_moves.c \
 											life_management.c \
-											crouch.c \
 											move_forward.c \
 											move_backward.c \
 											move_right.c \
@@ -129,7 +131,8 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											raycasting_00_set_n_cast_bonus.c \
 											raycasting_01_calc_bonus.c \
 											raycasting_02_draw_bonus.c \
-											raycasting_03_utils.c) \
+											raycasting_03_utils.c \
+											raycasting_04_bonus.c) \
 				$(addprefix $(SRC_PATH)start_n_init/, \
 											init_00_player.c \
 											init_01_game_bonus.c \

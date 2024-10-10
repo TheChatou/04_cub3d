@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:15:00 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/12 16:27:10 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/07 18:40:48 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ void	destroy_imgs(t_game *game)
 	free_img(game, &game->i_door);
 	free_img(game, &game->home_screen);
 	free_img(game, &game->raycasted);
-	free_img(game, &game->i_loaded);
 	free_img(game, &game->i_loading);
 }
 
 void	ft_free_all(t_game *game)
 {
 	free_intro(game);
+	free_btrap(game);
 	if (game->ray)
 		free(game->ray);
 	if (game->map_file)

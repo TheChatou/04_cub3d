@@ -6,29 +6,11 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 11:39:41 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/08/20 17:27:21 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/07 18:09:33 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
-
-int	handle_mouse_press(int button, int x, int y, t_game *game)
-{
-	(void)x;
-	(void)y;
-	if (button == 1)
-		game->player.weapons.shoot = 1;
-	return (0);
-}
-
-int	handle_mouse_release(int button, int x, int y, t_game *game)
-{
-	(void)x;
-	(void)y;
-	if (button == 1)
-		game->player.weapons.shoot = 0;
-	return (0);
-}
 
 void	rotate_cam(t_player *player, double angle)
 {
@@ -52,11 +34,11 @@ int	handle_mouse_motion(int x, int y, t_game *game)
 	double	angle;
 	double	delta_x;
 
+	(void)y;
 	delta_x = x - game->win.width / 2;
-	game->player.mouse.pos = (t_point){x, y};
 	mlx_mouse_move(game->mlx, game->win.win, game->win.width / 2,
 		game->win.height / 2);
-	angle = delta_x * game->cam.sensitivity;
+	angle = delta_x * SENSITIVITY;
 	rotate_cam(&game->player, angle);
 	return (0);
 }

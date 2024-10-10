@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:35:12 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/03 12:25:38 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:23:28 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 //	STRUCTS		////////////////////////////////////////////////////////////////
-// Structure pour représenter un point avec des doubles
+//	Structure pour représenter un point precis dans un espace 2D
 typedef struct s_dpoint
 {
 	double	x;
 	double	y;
 }	t_dpoint;
 
+//	Structure pour représenter un point precis dans un espace 3D
 typedef struct s_tri_point
 {
 	double	x;
@@ -40,24 +41,14 @@ typedef struct s_color
 	int	b;
 }	t_color;
 
-typedef struct s_weapons
-{
-	bool		shoot;
-	int			type;
-}	t_weapons;
-
-typedef struct s_mouse
-{
-	double	angle;
-	t_point	pos;
-}	t_mouse;
-
+//	Structure pour les threads
 typedef struct s_i_threads
 {
 	pthread_t	loading_th;
 	pthread_t	raycast_th;
 }	t_i_threads;
 
+//  Structure pour les données du joueur
 //  pos:       Position du joueur
 //  dir:       Direction du joueur/knife
 //  plane:     Le plan de la caméra du joueur, largeur du champ de vision
@@ -68,12 +59,12 @@ typedef struct s_player
 	double		shrink;
 	t_dpoint	dir;
 	t_dpoint	plane;
-	t_mouse		mouse;
-	t_weapons	weapons;
 	int			lifes;
 	bool		token;
+	double		speed;
 }	t_player;
 
+//  Structure pour les lignes de dessin des tokens et des pièges
 typedef struct s_line
 {
 	t_dpoint	pos;
@@ -89,13 +80,7 @@ typedef struct s_line
 	int			screen_x;
 }	t_line;
 
-typedef struct s_cam
-{
-	t_dpoint	rotation;
-	double		sensitivity;
-	double		pitch;
-}	t_cam;
-
+//  Structure pour les rayons du raycasting
 //  dir:			Direction du rayon
 //  map_pos:		Position actuelle das la carte
 //  side_dist:		Distance latérale jusqu'au prochain mur
@@ -130,10 +115,11 @@ typedef struct s_ray
 	double		texture_pos_y;
 	t_point		texture;
 	t_line		token;
+	t_line		lifes;
 	t_line		btrap;
-	bool		is_btrap;
 }	t_ray;
 
+//	Structure pour les donnees d'image
 typedef struct s_img
 {
 	void	*ptr;
@@ -145,6 +131,7 @@ typedef struct s_img
 	int		height;
 }	t_img;
 
+//	Structure pour la carte
 typedef struct s_map
 {
 	char	**map;
@@ -157,7 +144,6 @@ typedef struct s_map
 	char	*path_wall_w;
 	t_color	*floor;
 	t_color	*ceiling;
-	t_point	size;
 	t_point	exit;
 }	t_map;
 
@@ -167,6 +153,8 @@ typedef struct s_window
 	int		width;
 	int		height;
 }	t_window;
+
+//	Structure pour la minimap
 typedef struct t_mmap
 {
 	t_point		center;
@@ -185,9 +173,9 @@ typedef struct s_game
 	t_player		player;
 	t_map			*map;
 	t_ray			*ray;
-	t_cam			cam;
 	t_img			raycasted;
 	t_img			home_screen;
+	t_img			i_loading;
 	t_img			i_wall_n;
 	t_img			i_wall_s;
 	t_img			i_wall_e;
@@ -196,26 +184,27 @@ typedef struct s_game
 	t_img			i_ceiling;
 	t_img			i_hands;
 	t_img			i_heart;
+	t_img			i_lifes;
 	t_img			i_token;
 	t_img			i_door;
-	t_img			i_loading;
 	t_img			i_intro[4];
 	t_img			i_btrap[4];
-	t_img			i_loaded;
 	char			*p_intro[4];
 	char			*p_btrap[4];
 	t_i_threads		th;
+	pthread_mutex_t	mutex;
 	t_mmap			mmap;
 	float			move_x;
 	float			move_y;
 	float			dist_x;
 	float			dist_y;
+	t_dpoint		potion_pos;
 	int				level;
 	bool			is_loading;
+	bool			drinked;
 	int				state;
 	int				current_frame;
 	long			last_frame_time;
-	pthread_mutex_t	mutex;
 	void			*mlx;
 	bool			print;
 }	t_game;

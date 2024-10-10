@@ -5,13 +5,13 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/11 10:04:48 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/09/11 10:05:53 by fcoullou         ###   ########.fr       */
+/*   Created: 2024/10/08 11:12:49 by fcoullou          #+#    #+#             */
+/*   Updated: 2024/10/08 11:18:45 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEYS_MAC_H
-# define KEYS_MAC_H
+#ifndef FOR_MAC_OS_H
+# define FOR_MAC_OS_H
 
 # define KEY_W		13
 # define KEY_A		0

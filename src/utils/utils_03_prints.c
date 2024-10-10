@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 15:58:13 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/09/13 13:26:31 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/07 17:51:23 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	print_t_line(t_line *line)
 
 void	print_map(t_map *map)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	ft_printf("This is the map:\n");
-	while (i < map->size.y)
+	while (i < map->map_h)
 	{
 		ft_printf("%d: ", i);
 		ft_printf("%s", map->map[i]);

@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:34:13 by chatou            #+#    #+#             */
-/*   Updated: 2024/09/12 16:18:35 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/07 18:24:23 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ void	free_img(t_game *game, t_img *img)
 
 void	free_map(t_map *map)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i < map->size.y)
+	while (i < map->map_h)
 	{
 		if (map->map[i])
 			free(map->map[i]);
@@ -64,18 +64,6 @@ void	free_intro(t_game *game)
 	while (i < 5)
 	{
 		free_img(game, &game->i_intro[i]);
-		i++;
-	}
-}
-
-void	free_btrap(t_game *game)
-{
-	int	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		free_img(game, &game->i_btrap[i]);
 		i++;
 	}
 }

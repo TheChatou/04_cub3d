@@ -6,11 +6,32 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:54:56 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/09/12 13:55:14 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/10 14:14:19 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
+
+void	end_game(t_game *game)
+{
+	if (check_if_end(game))
+	{
+		if (game->level == 2)
+		{
+			game->state = GAME_OVER;
+			you_win();
+			display_home_screen(game, &game->home_screen);
+			return ;
+		}
+		free_game(game);
+	}
+	if (check_if_dead(game))
+	{
+		game_over();
+		destroy_game(game);
+		exit (0);
+	}
+}
 
 void	game_over(void)
 {

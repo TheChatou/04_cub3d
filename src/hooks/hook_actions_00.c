@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:39:29 by chatou            #+#    #+#             */
-/*   Updated: 2024/09/25 15:03:32 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/07 18:20:45 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ int	keys_moves(int keycode, t_game *game)
 	if (keycode == KEY_RIGHT)
 		handle_cam_motion(game, KEY_RIGHT);
 	update_player(game, 'N');
-	if (game->has_token)
-		ft_check_if_token(game);
 	return (0);
 }
 

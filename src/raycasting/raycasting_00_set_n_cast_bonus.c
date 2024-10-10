@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycasting_00_set_n_cast.c                         :+:      :+:    :+:   */
+/*   raycasting_00_set_n_cast_bonus.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 19:19:32 by chatou            #+#    #+#             */
-/*   Updated: 2024/09/13 14:43:58 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/10 12:22:45 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	raycasting(t_game *game)
 	{
 		init_ray(game->ray);
 		set_ray(game, x);
-		cast_ray(game, game->ray, &game->ray->token, &game->ray->btrap);
+		cast_ray(game, game->ray);
 		calc_rays(game->ray, &game->player, game);
 		draw_line(game, game->ray, game->raycasted, x);
 		x++;
@@ -94,7 +94,7 @@ void	set_ray_step(t_ray *ray, t_player *player)
 // en x, sinon en y.
 //	On modifie egalement la position du joueur en fonction de la direction
 // du rayon.
-void	cast_ray(t_game *game, t_ray *ray, t_line *tk, t_line *btrap)
+void	cast_ray(t_game *game, t_ray *ray)
 {
 	while (ray->hit == 0)
 	{
@@ -116,32 +116,37 @@ void	cast_ray(t_game *game, t_ray *ray, t_line *tk, t_line *btrap)
 			else
 				ray->side = E_SIDE;
 		}
-		ray_hit_check(game, ray, tk, btrap);
+		ray_hit_check(game, ray);
 	}
 }
 
 //	Verifie si le rayon a touché un mur ou un token
 //	Si le rayon touche un mur o une porte, on arrete le rayon
 //	Si le rayon touche un token, on stocke la position du token
-void	ray_hit_check(t_game *game, t_ray *ray, t_line *tk, t_line *btrap)
+void	ray_hit_check(t_game *game, t_ray *ray)
 {
 	if (game->map->map[ray->map_pos.y][ray->map_pos.x] == DOOR)
 		ray->is_door = 1;
-	if (game->map->map[ray->map_pos.y][ray->map_pos.x] == TRAP)
-		ray->is_btrap = 1;
 	if ((game->map->map[ray->map_pos.y][ray->map_pos.x] == WALL)
 		|| (game->map->map[ray->map_pos.y][ray->map_pos.x] == DOOR))
 		ray->hit = 1;
 	if (game->map->map[ray->map_pos.y][ray->map_pos.x] == TOKEN)
 	{
-		tk->hit = 1;
-		tk->pos = (t_dpoint){ray->map_pos.x + 0.5,
+		ray->token.hit = 1;
+		ray->token.pos = (t_dpoint){ray->map_pos.x + 0.5,
+			ray->map_pos.y + 0.5};
+		game->potion_pos = ray->token.pos;
+	}
+	if (game->map->map[ray->map_pos.y][ray->map_pos.x] == LIFE)
+	{
+		ray->lifes.hit = 1;
+		ray->lifes.pos = (t_dpoint){ray->map_pos.x + 0.5,
 			ray->map_pos.y + 0.5};
 	}
 	if (game->map->map[ray->map_pos.y][ray->map_pos.x] == TRAP)
 	{
-		btrap->hit = 1;
-		btrap->pos = (t_dpoint){ray->map_pos.x + 0.5,
+		ray->btrap.hit = 1;
+		ray->btrap.pos = (t_dpoint){ray->map_pos.x + 0.5,
 			ray->map_pos.y + 0.5};
 	}
 }

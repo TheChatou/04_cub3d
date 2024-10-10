@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:37:13 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/03 17:36:54 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/10 14:15:08 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void			free_game(t_game *game);
 void			free_img(t_game *game, t_img *img);
 void			free_map(t_map *map);
 void			free_intro(t_game *game);
+
+//--/free_01.c	---------------------------------------------------------------/
 void			free_btrap(t_game *game);
 
 ////HOOKS	////////////////////////////////////////////////////////////////////
@@ -92,12 +94,11 @@ bool			set_img(t_game *game, t_img *img);
 bool			raycasting(t_game *game);
 void			set_ray(t_game *game, int x);
 void			set_ray_step(t_ray *ray, t_player *player);
-void			cast_ray(t_game *game, t_ray *ray, t_line *tk, t_line *btrap);
-void			ray_hit_check(t_game *game, t_ray *ray, t_line *tk, t_line *btrap);
+void			cast_ray(t_game *game, t_ray *ray);
+void			ray_hit_check(t_game *game, t_ray *ray);
 
 //--/raycasting_01_calc.c	---------------------------------------------------/
 void			calc_rays(t_ray *ray, t_player *player, t_game *game);
-void			calc_ray_token(t_game *game, t_player *player, t_line *tk);
 void			calc_wall_tex_pos(t_game *game, t_ray *ray, t_img *wall);
 t_dpoint		calc_floor_tex_pos(t_game *game, t_ray *ray,
 					int y, t_dpoint *floor);
@@ -107,15 +108,13 @@ void			calc_booby_trap(t_game *game, t_player *player, t_line *btrap);
 
 //--/raycasting_02_draw.c	---------------------------------------------------/
 t_img			draw_line(t_game *game, t_ray *ray, t_img img, int x);
-void			draw_token_tex(t_game *game, t_img *token,
-					t_img *img, t_point pxl_pos);
+void			draw_tokens(t_game *game, t_ray *ray, t_dpoint win_pos,
+					t_img *img);
 void			draw_wall_tex(t_game *game, t_img *wall,
 					t_img *img, t_point pxl_pos);
 void			draw_floor_tex(t_game *game, t_ray *ray,
 					t_img img, t_point pxl_pos);
 void			draw_ceiling_tex(t_game *game, t_ray *ray,
-					t_img img, t_point pxl_pos);
-void			draw_booby_trap(t_game *game, t_img *trap,
 					t_img img, t_point pxl_pos);
 
 //--/raycasting_03_utils.c	---------------------------------------------------/
@@ -123,16 +122,27 @@ unsigned int	get_pixel_color(t_img img, int x, int y);
 void			set_pixel(t_img *img, int x, int y, unsigned int color);
 t_img			select_wall(t_game *game, t_ray *ray);
 
+//--/raycasting_04_bonus.c	---------------------------------------------------/
+void			calc_ray_token(t_game *game, t_player *player, t_line *tk);
+void			calc_ray_token_line(t_game *game, t_player *player, t_line *tk);
+void			draw_lifes_tex(t_game *game, t_img *heart,
+					t_img *img, t_point pxl_pos);
+void			draw_token_tex(t_game *game, t_img *token,
+					t_img *img, t_point pxl_pos);
+void			draw_booby_trap(t_game *game, t_img *trap,
+					t_img img, t_point pxl_pos);
+
 ////START_N_INIT	////////////////////////////////////////////////////////////
-//--/_init_player.c	-----------------------------------------------------------/
+//--/_init_00_player.c	-------------------------------------------------------/
 bool			set_player(t_game *game, t_player *player);
 t_player		set_dir_n_plane(t_map *map);
 
-//--/_init_structures.c	-------------------------------------------------------/
+//--/_init_01_game.c	-------------------------------------------------------/
 bool			set_game(t_game *game, char *av, int level);
+bool			set_win(t_window *win, void *mlx_ptr);
 bool			init_game(t_game *game);
-void			init_cam(t_cam *cam);
 bool			init_ray(t_ray *ray);
+void			init_all_t_imgs(t_game *game);
 
 //--/game_00_Start.c	-------------------------------------------------------/
 bool			launch(t_game *game, char *av, int level);
@@ -143,9 +153,10 @@ bool			display_home_screen(t_game *game, t_img *home);
 
 //--/game_01_UserInterface.c	-----------------------------------------------/
 bool			draw_user_interface(t_game *game);
+void			check_if_skrinked(t_game *game);
 void			lifes(t_game *game, int lifes);
-bool			weapon(t_game *game, t_img *img);
-void			draw_weapon(t_game *game, t_img *img);
+bool			load_hands(t_game *game, t_img *img);
+void			draw_hands(t_game *game, t_img *img);
 
 ////UTILS	////////////////////////////////////////////////////////////////////
 //--/utils_00.c	---------------------------------------------------------------/
@@ -162,7 +173,8 @@ unsigned int	apply_gradient_shader(unsigned int pixel, double percent,
 long			get_current_time_ms(void);
 
 //--/utils_02_load_imgs.c	---------------------------------------------------/
-void			load_imgs(t_game *game, t_map *map);
+void			load_imgs_bonus(t_game *game, t_map *map);
+void			load_i_walls(t_game *game, t_map *map);
 bool			load_img_n_addr(t_game *game, t_img *img,
 					char *path, char *error);
 t_img			error_img(void);
@@ -175,8 +187,8 @@ int				ft_print_map_tab(t_game *game);
 int				ft_print_map_info(t_game *game);
 
 //--/utils_04_ending.c	-------------------------------------------------------/
+void			end_game(t_game *game);
 void			you_win(void);
-void			game_over(void);
 void			game_over(void);
 
 ////MATH	////////////////////////////////////////////////////////////////////
@@ -193,6 +205,8 @@ bool			lose_life(t_game *game, float move_y, float move_x);
 
 //--/crouch.c	---------------------------------------------------------------/
 void			crouch(t_player *player);
+void			drink_me(t_game *game);
+void			screen_flash(t_game *game, char *path, char *error);
 
 //--/move_forward.c	-----------------------------------------------------------/
 t_player		slide_forward(int y, int x, t_game *game);
@@ -225,10 +239,11 @@ void			ft_free_all(t_game *game);
 void			destroy_imgs(t_game *game);
 
 //--/parsing_map_info.c	-------------------------------------------------------/
-void			ft_quit_textures_colors(char *src, char **tab, t_game *game, char *mss);
+void			ft_quit_textures_colors(char *src, char **tab,
+					t_game *game, char *mss);
 int				ft_get_map_info(char *src, t_game *game);
 int				ft_pass_map_info(char *src);
-int				ft_free_tab(char **tab); // put in free_functions
+int				ft_free_tab(char **tab);
 
 //--/stock_textures.c	-------------------------------------------------------/
 int				ft_stock_north_texture(char *src, t_game *game);
@@ -238,7 +253,8 @@ int				ft_stock_east_texture(char *src, t_game *game);
 
 //--/stock_textures1.c	-------------------------------------------------------/
 char			*ft_remove_nl(char *src, t_game *game, char **tab);
-void			ft_control_colors(t_color *color, char **tab, t_game *game, char *src);
+void			ft_control_colors(t_color *color, char **tab,
+					t_game *game, char *src);
 int				ft_stock_floor_color(char *src, t_game *game);
 int				ft_stock_ceiling_color(char *src, t_game *game);
 
@@ -261,7 +277,6 @@ int				get_map_size(t_game *game, char *map_file);
 int				ft_stock_map_tab(char *map_file, t_game *game);
 
 //--/utils.c	---------------------------------------------------------------/
-void			end_game(t_game *game);
 bool			check_if_end(t_game *game);
 bool			check_if_dead(t_game *game);
 t_tri_point		find_player_float(t_map *map);
@@ -288,6 +303,5 @@ void			minimap(t_game *game);
 //-/minimap_utils.c -----------------------------------------------------------/
 bool			is_in_circle(t_dpoint *pixel);
 void			ft_define_pixel_color(t_game *game, int x, int y);
-
 
 #endif

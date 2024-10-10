@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 15:58:19 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/03 14:59:10 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:46:15 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ int	game_loop(t_game *game)
 		mlx_put_image_to_window(game->mlx, game->win.win, game->raycasted.ptr,
 			0, 0);
 		end_game(game);
+		if (game->state == GAME_OVER)
+			return (1);
 	}
 	return (0);
 }
@@ -79,7 +81,7 @@ void	*pre_raycasting(void *arg)
 	t_game	*game;
 
 	game = (t_game *)arg;
-	load_imgs(game, game->map);
+	load_imgs_bonus(game, game->map);
 	if (!set_player(game, &game->player))
 		return (ft_putstr_fd("Error\nCouldn't initialize the player\n",
 				STDERR_FILENO), NULL);
@@ -90,14 +92,18 @@ void	*pre_raycasting(void *arg)
 	return (NULL);
 }
 
+//  Affiche l'écran d'accueil.
 bool	display_home_screen(t_game *game, t_img *home)
 {
 	init_img(home, TILE_SIZE);
 	if (game->level == 1
 		&& !load_img_n_addr(game, home, HOMESCREEN_PATH_1, "the home screen"))
 		return (false);
-	else if (game->level == 2
+	else if (game->level == 2 && game->player.shrink != SHRINK
 		&& !load_img_n_addr(game, home, HOMESCREEN_PATH_2, "the home screen"))
+		return (false);
+	else if (game->level == 2 && game->player.shrink == SHRINK
+		&& !load_img_n_addr(game, home, ENDING_PATH, "the ending screen"))
 		return (false);
 	mlx_put_image_to_window(game->mlx, game->win.win, home->ptr, 0, 0);
 	return (true);

@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:26:57 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/09/13 12:44:10 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/07 19:10:38 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,17 @@
 bool	draw_user_interface(t_game *game)
 {
 	minimap(game);
-	game->player.weapons.type = 1;
-	if (game->player.weapons.type)
-		weapon(game, &game->i_hands);
+	load_hands(game, &game->i_hands);
+	draw_hands(game, &game->raycasted);
+	check_if_skrinked(game);
 	lifes(game, game->player.lifes);
 	return (true);
+}
+
+void	check_if_skrinked(t_game *game)
+{
+	if (!game->has_token && game->level == 2)
+		game->player.shrink = SHRINK;
 }
 
 void	lifes(t_game *game, int lifes)
@@ -51,23 +57,24 @@ void	lifes(t_game *game, int lifes)
 	}
 }
 
-bool	weapon(t_game *game, t_img *img)
+bool	load_hands(t_game *game, t_img *img)
 {
-	if (game->player.weapons.type == 2 && game->level == 1)
+	if (!game->has_token && game->level == 1)
 	{
 		free_img(game, img);
-		load_img_n_addr(game, img, HANDS_PATH_1_W, "the wrist watch");
+		if (!load_img_n_addr(game, img, HANDS_PATH_1_W, "the wrist watch"))
+			return (false);
 	}
-	else if (game->player.weapons.type == 2 && game->level == 2)
+	else if (game->level == 2)
 	{
 		free_img(game, img);
-		load_img_n_addr(game, img, HANDS_PATH_2_W, "the wrist watch");
+		if (!load_img_n_addr(game, img, HANDS_PATH_2_W, "the wrist watch"))
+			return (false);
 	}
-	draw_weapon(game, &game->raycasted);
 	return (true);
 }
 
-void	draw_weapon(t_game *game, t_img *img)
+void	draw_hands(t_game *game, t_img *img)
 {
 	t_point		pos;
 	t_point		tex;

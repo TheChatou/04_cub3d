@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_left.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 13:18:24 by chatou            #+#    #+#             */
-/*   Updated: 2024/09/11 17:01:58 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/10 13:44:24 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,20 @@ t_player	move_left(t_game *game, t_player player)
 
 	y = ft_truncate(game->player.pos.y);
 	x = ft_truncate(game->player.pos.x);
-	game->move_x = player.pos.x + player.dir.y * 0.1;
-	game->move_y = player.pos.y - player.dir.x * 0.1;
+	game->move_x = player.pos.x + player.dir.y * player.speed;
+	game->move_y = player.pos.y - player.dir.x * player.speed;
 	game->dist_x = x - player.pos.x;
 	game->dist_y = y - player.pos.y;
 	player = slide_left(y, x, game);
 	if (is_walkable(game, game->move_y, game->move_x))
 	{
-		player.pos.y -= player.dir.x * 0.1;
-		player.pos.x += player.dir.y * 0.1;
+		player.pos.y -= player.dir.x * player.speed;
+		player.pos.x += player.dir.y * player.speed;
+	}
+	else if (!lose_life(game, game->move_y, game->move_x))
+	{
+		player.lifes -= 1;
+		screen_flash(game, RED_PATH, "the red screen");
 	}
 	return (player);
 }

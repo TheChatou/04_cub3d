@@ -3,22 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   control_moves.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 14:49:55 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/13 14:46:21 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/10 13:25:00 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3D.h"
 
-bool	block_sb(t_game *game, int a, int b)
+bool	block_sb(t_game *game, int y, int x)
 {
-	if (game->has_token && game->map->map[a][b] == 'D')
+	if (game->has_token && game->map->map[y][x] == DOOR)
 		return (true);
-	if (game->map->map[a][b] == '1')
+	if (game->level == 2 && game->map->map[y][x] == TOKEN)
+	{
+		if (fabs(game->player.pos.x - game->potion_pos.x) < 0.7
+			&& fabs(game->player.pos.y - game->potion_pos.y) < 0.7)
+			drink_me(game);
 		return (true);
-	if (game->map->map[a][b] == TRAP)
+	}
+	if (game->map->map[y][x] == WALL)
+		return (true);
+	if (game->map->map[y][x] == TRAP)
 		return (true);
 	return (false);
 }

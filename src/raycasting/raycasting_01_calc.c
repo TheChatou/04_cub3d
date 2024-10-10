@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:49:51 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/03 18:12:35 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/08 10:46:13 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ void	calc_rays(t_ray *ray, t_player *player, t_game *game)
 				+ (1 - ray->step.y) / 2) / ray->dir.y;
 	ray->perp_wall_dist = fabs(ray->perp_wall_dist);
 	ray->line_height = (int)(WIN_SIZE / ray->perp_wall_dist);
-	ray->draw_start = -(ray->line_height / 2) + (WIN_CENTER) - ((WIN_CENTER * player->shrink / (ray->perp_wall_dist)));
+	ray->draw_start = -(ray->line_height / 2) + (WIN_CENTER)
+		- ((WIN_CENTER * player->shrink / (ray->perp_wall_dist)));
 	if (ray->draw_start < 0)
 		ray->draw_start = 0;
-	ray->draw_end = (ray->line_height / 2) + (WIN_CENTER) - (WIN_CENTER * player->shrink / (ray->perp_wall_dist));
+	ray->draw_end = (ray->line_height / 2) + (WIN_CENTER)
+		- (WIN_CENTER * player->shrink / (ray->perp_wall_dist));
 	if (ray->draw_end >= WIN_SIZE)
 		ray->draw_end = WIN_SIZE - 1;
 }

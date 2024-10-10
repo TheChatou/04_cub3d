@@ -6,27 +6,11 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:15:25 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/24 14:20:12 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/10 14:14:13 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3D.h"
-
-void	end_game(t_game *game)
-{
-	if (check_if_end(game))
-	{
-		if (game->level == 2)
-			you_win();
-		free_game(game);
-	}
-	if (check_if_dead(game))
-	{
-		game_over();
-		destroy_game(game);
-		exit (0);
-	}
-}
 
 bool	check_if_end(t_game *game)
 {
@@ -61,10 +45,10 @@ t_tri_point	find_player_float(t_map *map)
 
 	p.y = 0;
 	p.z = 0.5;
-	while (p.y < map->size.y)
+	while (p.y < map->map_h)
 	{
 		p.x = 0;
-		while (p.x < map->size.x)
+		while (p.x < map->map_w)
 		{
 			if (map->map[(int)p.y][(int)p.x] == 0)
 				break ;

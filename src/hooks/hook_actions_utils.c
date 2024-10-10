@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hook_actions_utils.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 14:56:41 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/13 15:00:41 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/07 17:15:27 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	handle_cam_motion(t_game *game, int keycode)
 
 	x = 1;
 	delta_x = x - game->win.width / 2;
-	angle = delta_x * game->cam.sensitivity;
+	angle = delta_x * SENSITIVITY;
 	if (keycode == KEY_RIGHT)
 		angle *= -1;
 	rotate_arrows(&game->player, angle);

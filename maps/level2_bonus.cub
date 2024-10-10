@@ -1,8 +1,7 @@
-NO ./assets/Alic3D/inside_wall_0_s.xpm
-SO ./assets/Alic3D/inside_wall_0_s.xpm
-WE ./assets/Alic3D/inside_wall_1_s.xpm
-EA ./assets/Alic3D/inside_wall_1_s.xpm
-
+NO ./assets/Alic3D/Wall_05_lvl2.xpm
+SO ./assets/Alic3D/Wall_09_lvl2.xpm
+WE ./assets/Alic3D/Wall_06_lvl2.xpm
+EA ./assets/Alic3D/Wall_10_lvl2.xpm
 
 
 F 87,87,87
@@ -10,12 +9,13 @@ C 200,30,200
 
 
 
-1111111111
-1000000001
-1001D00T01
-1000010011
-1000000001
-1110000111
-1011N00001
-1000000001
-1111111111
+111111111
+1111D1111
+100000001
+100000001
+100000001
+1000T0001
+100000001
+100000001
+1000N0001
+111111111
