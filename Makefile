@@ -6,7 +6,7 @@
 #    By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 14:50:30 by fcoullou          #+#    #+#              #
-#    Updated: 2024/10/10 14:17:18 by fcoullou         ###   ########.fr        #
+#    Updated: 2024/10/11 15:58:07 by fcoullou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -93,7 +93,8 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											main_bonus.c) \
 				$(addprefix $(SRC_PATH)anim/, \
 											anim_00_LoadingScreen.c \
-											anim_01_BoobyTrap.c) \
+											anim_01_BoobyTrap.c \
+											anim_02_Exit.c) \
 				$(addprefix $(SRC_PATH)flood_fill/, \
 											flood_fill_utils_bonus.c \
 											flood_fill.c) \
@@ -137,7 +138,8 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											init_00_player.c \
 											init_01_game_bonus.c \
 											game_00_Start_bonus.c \
-											game_01_UserInterface.c) \
+											game_01_UserInterface.c \
+											game_02_UserInterface.c) \
 				$(addprefix $(SRC_PATH)utils/, \
 											utils_00.c \
 											utils_01.c \
@@ -203,7 +205,7 @@ VALCHILD=--trace-children=yes
 
 ################################################################################
 ##	RULES		################################################################
-all: $(NAME)
+all: $(NAME_BONUS)
 
 $(MLX):
 	@ranlib $(MLX_PATH)libmlx.a

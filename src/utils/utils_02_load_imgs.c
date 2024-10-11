@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 15:55:40 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/09 12:08:20 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:18:14 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	load_imgs_bonus(t_game *game, t_map *map)
 		load_img_n_addr(game, &game->i_ceiling, CEILING_PATH_2, "the ceiling");
 		load_img_n_addr(game, &game->i_hands, HANDS_PATH_2_W, "the hands");
 		load_img_n_addr(game, &game->i_token, POTION_PATH, "the token");
-		load_img_n_addr(game, &game->i_door, DOOR_PATH_2, "the door");
+		load_i_exit(game);
 	}
 }
 
@@ -49,6 +49,8 @@ void	load_i_walls(t_game *game, t_map *map)
 
 bool	load_img_n_addr(t_game *game, t_img *img, char *path, char *error)
 {
+	if (img->ptr)
+		free_img(game, img);
 	if (!img->ptr)
 	{
 		img->ptr = mlx_xpm_file_to_image(game->mlx,

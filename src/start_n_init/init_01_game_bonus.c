@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:04:10 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/08 11:48:53 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:27:32 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,8 @@ void	init_all_t_imgs(t_game *game)
 	init_img(&game->raycasted, WIN_SIZE);
 	init_img(&game->home_screen, WIN_SIZE);
 	init_img(&game->i_loading, WIN_SIZE);
+	init_img(&game->i_home, WIN_SIZE);
+	init_img(&game->i_flash, TILE_SIZE);
 	init_img(&game->i_wall_n, TILE_SIZE);
 	init_img(&game->i_wall_s, TILE_SIZE);
 	init_img(&game->i_wall_e, TILE_SIZE);
@@ -83,12 +85,7 @@ void	init_all_t_imgs(t_game *game)
 	init_img(&game->i_lifes, TILE_SIZE);
 	init_img(&game->i_token, TILE_SIZE);
 	init_img(&game->i_door, TILE_SIZE);
-	init_img(&game->i_intro[0], TILE_SIZE);
-	init_img(&game->i_intro[1], TILE_SIZE);
-	init_img(&game->i_intro[2], TILE_SIZE);
-	init_img(&game->i_intro[3], TILE_SIZE);
-	init_img(&game->i_btrap[0], 100);
-	init_img(&game->i_btrap[1], 100);
-	init_img(&game->i_btrap[2], 100);
-	init_img(&game->i_btrap[3], 100);
+	init_t_img_tab(game->i_intro, 100);
+	init_t_img_tab(game->i_btrap, TILE_SIZE);
+	init_t_img_tab(game->i_exit, TILE_SIZE);
 }

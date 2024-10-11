@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:35:12 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/10 12:23:28 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:30:41 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,6 +176,8 @@ typedef struct s_game
 	t_img			raycasted;
 	t_img			home_screen;
 	t_img			i_loading;
+	t_img			i_home;
+	t_img			i_flash;
 	t_img			i_wall_n;
 	t_img			i_wall_s;
 	t_img			i_wall_e;
@@ -189,8 +191,10 @@ typedef struct s_game
 	t_img			i_door;
 	t_img			i_intro[4];
 	t_img			i_btrap[4];
+	t_img			i_exit[4];
 	char			*p_intro[4];
 	char			*p_btrap[4];
+	char			*p_exit[4];
 	t_i_threads		th;
 	pthread_mutex_t	mutex;
 	t_mmap			mmap;

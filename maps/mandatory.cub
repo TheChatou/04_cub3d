@@ -1,16 +1,13 @@
-WE ./assets/Mandatory/yellow.xpm
-
-EA ./assets/Mandatory/green.xpm
-
-NO ./assets/Mandatory/red.xpm
-SO ./assets/Mandatory/blue.xpm
+NO ./assets/Mandatory/N_blue.xpm
+WE ./assets/Mandatory/W_yellow.xpm
+EA ./assets/Mandatory/E_green.xpm
+SO ./assets/Mandatory/S_red.xpm
 
 F 0, 0, 0
-C 255, -255, -255
+C 255, 255, 255
 
 11111111111111
 10000000000001
 1000000W000001
 10000000000001
 11111111111111
-

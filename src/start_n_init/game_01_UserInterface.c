@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 14:26:57 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/07 19:10:38 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 15:49:42 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	lifes(t_game *game, int lifes)
 	while (lifes-- > 0)
 	{
 		tex.y = 0;
-		pos.y = 760;
+		pos.y = WIN_SIZE - 20 - game->i_heart.height;
 		while (tex.y < game->i_heart.height)
 		{
 			tex.x = 0;

@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:37:13 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/10 14:15:08 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:25:22 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ t_img			*render_booby_trap(t_game *game);
 void			load_i_btrap(t_game *game);
 void			set_p_btrap(t_game *game);
 
+//--/anim_02_exit.c	---------------------------------------------------------/
+t_img			*render_exit(t_game *game);
+void			load_i_exit(t_game *game);
+void			set_p_exit(t_game *game);
+
 ////FREE	////////////////////////////////////////////////////////////////////
 //--/free_00.c	---------------------------------------------------------------/
 int				destroy_game(t_game *game);
@@ -66,6 +71,7 @@ void			free_intro(t_game *game);
 
 //--/free_01.c	---------------------------------------------------------------/
 void			free_btrap(t_game *game);
+void			free_exit(t_game *game);
 
 ////HOOKS	////////////////////////////////////////////////////////////////////
 //--/hook_actions_00.c	-------------------------------------------------------/
@@ -149,7 +155,6 @@ bool			launch(t_game *game, char *av, int level);
 int				start(int keycode, t_game *game);
 int				game_loop(t_game *game);
 void			*pre_raycasting(void *arg);
-bool			display_home_screen(t_game *game, t_img *home);
 
 //--/game_01_UserInterface.c	-----------------------------------------------/
 bool			draw_user_interface(t_game *game);
@@ -157,6 +162,10 @@ void			check_if_skrinked(t_game *game);
 void			lifes(t_game *game, int lifes);
 bool			load_hands(t_game *game, t_img *img);
 void			draw_hands(t_game *game, t_img *img);
+
+//--/game_02_UserInterface.c	-----------------------------------------------/
+bool			display_home_screen(t_game *game, t_img *home);
+void			draw_homescreen(t_img *i_home, t_img *homescreen);
 
 ////UTILS	////////////////////////////////////////////////////////////////////
 //--/utils_00.c	---------------------------------------------------------------/
@@ -171,6 +180,7 @@ unsigned int	t_color_to_uint(t_color color);
 unsigned int	apply_gradient_shader(unsigned int pixel, double percent,
 					SDL_Color target);
 long			get_current_time_ms(void);
+void			init_t_img_tab(t_img *img, int size);
 
 //--/utils_02_load_imgs.c	---------------------------------------------------/
 void			load_imgs_bonus(t_game *game, t_map *map);

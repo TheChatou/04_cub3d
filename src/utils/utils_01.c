@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 15:17:45 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/09/11 15:38:01 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:25:40 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,16 @@ long	get_current_time_ms(void)
 
 	clock_gettime(CLOCK_MONOTONIC, &ts);
 	return (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
+}
+
+void	init_t_img_tab(t_img *img, int size)
+{
+	int		i;
+
+	i = 0;
+	while (i++ < 4)
+	{
+		init_img(&img[i], size);
+		i++;
+	}
 }

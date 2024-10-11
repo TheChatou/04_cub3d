@@ -1,7 +1,7 @@
-NO ./assets/Alic3D/Wall_05_lvl2.xpm
+NO ./assets/Alic3D/Wall_10_lvl2.xpm
 SO ./assets/Alic3D/Wall_09_lvl2.xpm
 WE ./assets/Alic3D/Wall_06_lvl2.xpm
-EA ./assets/Alic3D/Wall_10_lvl2.xpm
+EA ./assets/Alic3D/Wall_05_lvl2.xpm
 
 
 F 87,87,87
@@ -9,7 +9,7 @@ C 200,30,200
 
 
 
-111111111
+   111
 1111D1111
 100000001
 100000001

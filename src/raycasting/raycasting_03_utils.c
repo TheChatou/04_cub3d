@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 11:51:56 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/10 14:45:04 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:04:01 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ t_img	select_wall(t_game *game, t_ray *ray)
 		wall = game->i_wall_e;
 	else if (ray->side == W_SIDE)
 		wall = game->i_wall_w;
-	if (ray->is_door)
+	if (ray->is_door && game->level == 1)
 		wall = game->i_door;
+	else if (ray->is_door && game->level == 2)
+		wall = (*render_exit(game));
 	return (wall);
 }
