@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_elements_bonus.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:58:03 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/03 15:25:57 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 13:47:07 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

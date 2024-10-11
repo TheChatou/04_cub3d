@@ -1,9 +1,17 @@
-NO ./assets/Alic3D/WN_lvl1.xpm
+NO         ./assets/Alic3D/WN_lvl1.xpm
+NO         ./assets/Alic3D/WN_lvl1.xpm
+NO         ./assets/Alic3D/WN_lvl1.xpm
+
+
 SO ./assets/Alic3D/WS_lvl1.xpm
 WE ./assets/Alic3D/WE_lvl1.xpm
+
 EA ./assets/Alic3D/WW_lvl1.xpm
 
-F                       255, 215, 0
+
+F              4  , 90  ,34
+F              4  , 20  ,34
+
 C 50,255,             255
 
 111111111111111111111
@@ -25,3 +33,6 @@ C 50,255,             255
 1010111111111111111B1
 10000000000T0000000N1
 111111111111111111111
+ 100001   1
+  100001   1
+ 111111   1

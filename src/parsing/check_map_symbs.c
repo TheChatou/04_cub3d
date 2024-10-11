@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_symbs.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/23 18:21:19 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/03 15:25:43 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:00:41 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_check_symb(char c)
 {
-	if (ft_is_space(c) || !ft_player_symb(c) || c == WALL
-		|| c == VOID || c == '\n')
+	if (!ft_player_symb(c) || c == WALL
+		|| c == VOID || c == ' ' || c == '\n')
 		return (0);
 	return (1);
 }

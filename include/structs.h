@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:35:12 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/10 12:23:28 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:50:47 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,8 @@ typedef struct s_game
 	long			last_frame_time;
 	void			*mlx;
 	bool			print;
+	int				cub_info;
+	int				nl;
 }	t_game;
 
 #endif

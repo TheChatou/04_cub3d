@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+         #
+#    By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 14:50:30 by fcoullou          #+#    #+#              #
-#    Updated: 2024/10/10 14:17:18 by fcoullou         ###   ########.fr        #
+#    Updated: 2024/10/11 17:24:10 by mamoulin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRC				= $(addprefix $(SRC_PATH), \
 											errors.c \
 											free_functions.c \
 											parsing_map_info.c \
+											parsing_map_info1.c \
 											parsing_map1.c \
 											stock_textures.c \
 											stock_textures1.c \
@@ -122,6 +123,7 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											errors.c \
 											free_functions.c \
 											parsing_map_info.c \
+											parsing_map_info1.c \
 											parsing_map1.c \
 											stock_textures.c \
 											stock_textures1.c \
