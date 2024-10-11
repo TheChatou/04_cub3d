@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:37:13 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/11 17:31:05 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 18:03:42 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,11 @@ void			game_over(void);
 
 ////MATH	////////////////////////////////////////////////////////////////////
 ////MOVES	////////////////////////////////////////////////////////////////////
+//--/bonus_managment.c	-------------------------------------------------------/
+void			crouch(t_player *player);
+void			drink_me(t_game *game);
+void			screen_flash(t_game *game, char *path, char *error);
+
 //--/control_moves.c	-------------------------------------------------------/
 bool			block_sb(t_game *game, int a, int b2);
 bool			corner_collision(t_game *game, float move_y, float move_x);
@@ -291,6 +296,7 @@ int				ft_check_empty_spot(char c);
 //--/parsing_map1.c	-----------------------------------------------------------/
 int				get_map_size(t_game *game, char *map_file);
 int				ft_stock_map_tab(char *map_file, t_game *game);
+int				ft_check_empty_line(char *src, t_game *game);
 
 //--/utils.c	---------------------------------------------------------------/
 bool			check_if_end(t_game *game);

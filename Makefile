@@ -6,7 +6,7 @@
 #    By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 14:50:30 by fcoullou          #+#    #+#              #
-#    Updated: 2024/10/11 17:33:11 by fcoullou         ###   ########.fr        #
+#    Updated: 2024/10/11 17:55:31 by fcoullou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SRC				= $(addprefix $(SRC_PATH), \
 											main.c) \
 				$(addprefix $(SRC_PATH)anim/, \
 											anim_00_LoadingScreen.c \
-											anim_01_BoobyTrap.c) \
+											anim_01_BoobyTrap.c \
+											anim_02_Exit.c) \
 				$(addprefix $(SRC_PATH)flood_fill/, \
 											flood_fill_utils.c \
 											flood_fill.c) \
@@ -83,7 +84,8 @@ SRC				= $(addprefix $(SRC_PATH), \
 											init_00_player.c \
 											init_01_game.c \
 											game_00_Start.c \
-											game_01_UserInterface.c) \
+											game_01_UserInterface.c \
+											game_02_UserInterface.c) \
 				$(addprefix $(SRC_PATH)utils/, \
 											utils_00.c \
 											utils_01.c \
@@ -111,7 +113,7 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											mouse_tracking.c) \
 				$(addprefix $(SRC_PATH)moves/, \
 											bonus_managment.c \
-											control_moves.c \
+											control_moves_bonus.c \
 											life_management.c \
 											move_forward.c \
 											move_backward.c \
