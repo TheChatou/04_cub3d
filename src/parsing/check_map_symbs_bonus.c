@@ -6,7 +6,7 @@
 /*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 18:09:24 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/12 18:17:49 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/11 16:02:11 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_check_symb(char c)
 {
-	if (ft_is_space(c) || !ft_player_symb(c) || c == WALL
+	if (!ft_player_symb(c) || c == WALL || c == ' '
 		|| c == VOID || c == DOOR || c == TOKEN
 		|| c == TRAP || c == LIFE || c == '\n')
 		return (0);

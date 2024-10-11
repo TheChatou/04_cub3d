@@ -6,7 +6,7 @@
 /*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/03 14:49:55 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/03 14:52:42 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/11 12:35:02 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ bool	is_in_circle(t_dpoint *pixel)
 
 void	ft_define_pixel_color(t_game *game, int x, int y)
 {
-	if (!game->map->map[y][x] || game->map->map[y][x] == WALL)
+	if (!game->map->map[y][x] || game->map->map[y][x] == WALL
+	|| ft_is_space(game->map->map[y][x]))
 		game->mmap.color_pxl = WALL_COLOR;
 	else if (game->map->map[y][x] == DOOR)
 		game->mmap.color_pxl = EXIT_COLOR;

@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:37:13 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/11 17:25:22 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:31:05 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -251,9 +251,15 @@ void			destroy_imgs(t_game *game);
 //--/parsing_map_info.c	-------------------------------------------------------/
 void			ft_quit_textures_colors(char *src, char **tab,
 					t_game *game, char *mss);
-int				ft_get_map_info(char *src, t_game *game);
+int				ft_set_walls_info(char *src, t_game *game);
+int				ft_set_colors(char *src, t_game *game);
 int				ft_pass_map_info(char *src);
 int				ft_free_tab(char **tab);
+
+//--/parsing_map_info1.c	---------------------------------------------------/
+void			ft_quit_textures_colors(char *src, char **tab, t_game *game, char *mss);
+void			ft_change_walls_text(char *src, t_game *game);
+void			ft_change_colors_text(t_color *color, t_game *game);
 
 //--/stock_textures.c	-------------------------------------------------------/
 int				ft_stock_north_texture(char *src, t_game *game);
