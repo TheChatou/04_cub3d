@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:15:25 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/10 14:32:28 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 10:34:36 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,9 @@ void	ft_check_if_token(t_game *game)
 		y++;
 	}
 	z = y;
-	if (z == game->map->map_h - 1)
+	printf("z = %zu\n", z);
+	printf("game->map->map_h = %zu\n", game->map->map_h);
+	if (z == game->map->map_h - 2)
 	{
 		game->has_token = 0;
 		free_img(game, &game->i_hands);

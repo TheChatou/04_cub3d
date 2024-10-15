@@ -6,7 +6,7 @@
 /*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:37:13 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/11 17:07:09 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:57:50 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,7 +230,7 @@ void			ft_access_textures(t_game *game);
 
 //--/errors.c	---------------------------------------------------------------/
 void			ft_error_map(t_game *game, char *str);
-void			ft_error_map1(char *str, t_game *game);
+void			ft_error_map1(t_game *game, char *str, char *to_free);
 
 //--/free_functions.c	-------------------------------------------------------/
 void			ft_free_map_tab(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:17:12 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/11 17:22:10 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/11 18:25:42 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,7 @@ int	ft_pass_map_info(char *src)
 		return (0);
 	if (!ft_strncmp(src, "C ", 2))
 		return (0);
+	if (!ft_strncmp(src, "\n", 2))
+		return (0);
 	return (1);
 }
-
-	// if (!ft_strncmp(src, "\n", 2))
-	// 	return (0);

@@ -6,7 +6,7 @@
 #    By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 14:50:30 by fcoullou          #+#    #+#              #
-#    Updated: 2024/10/11 17:24:10 by mamoulin         ###   ########.fr        #
+#    Updated: 2024/10/14 14:22:56 by mamoulin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -221,7 +221,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@printf "$(GREEN)[COMPILATION]$(RESET) : $<$(CLEAR_EOL)\r"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $< 
 #------------------------------------------------------------------------------#
-bonus: fclean $(NAME_BONUS)
+bonus: $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJ_BONUS) $(MLX)
 	@if [ ! -f $(LIBFT)/libft.a ]; then make -s -C $(LIBFT); fi

@@ -6,7 +6,7 @@
 /*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:37:53 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/12 17:53:55 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:48:48 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ char	**ft_copy_map(char **map, t_game *game)
 
 	tab_size = game->map->map_h;
 	i = 0;
-	copy = ft_calloc((tab_size), sizeof(char *));
+	copy = ft_calloc((tab_size + 1), sizeof(char *));
 	if (!copy)
 		ft_free_all(game);
 	while (i < tab_size && map[i])
@@ -35,6 +35,7 @@ char	**ft_copy_map(char **map, t_game *game)
 		}
 		i++;
 	}
+	copy[i] = NULL;
 	return (copy);
 }
 
