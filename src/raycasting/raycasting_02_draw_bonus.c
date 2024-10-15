@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:56:42 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/10 13:40:41 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 10:59:15 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,33 +36,29 @@ t_img	draw_line(t_game *game, t_ray *ray, t_img img, int x)
 			draw_floor_tex(game, ray, game->i_floor, (t_point){x, y});
 		y++;
 	}
-	draw_tokens(game, ray, (t_dpoint){x, y}, &img);
+	draw_elements(game, ray, (t_dpoint){x, y});
 	return (img);
 }
 
-void	draw_tokens(t_game *game, t_ray *ray, t_dpoint win_pos, t_img *img)
+void	draw_elements(t_game *game, t_ray *ray, t_dpoint p)
 {
 	t_img		*trap;
+	int			order;
 
 	trap = render_booby_trap(game);
 	if (ray->token.hit || ray->btrap.hit || ray->lifes.hit)
 	{
-		win_pos.y = 0;
-		while (win_pos.y < WIN_SIZE)
+		p.y = 0;
+		while (p.y < WIN_SIZE)
 		{
-			if (win_pos.y >= ray->token.draw_start.y
-				&& win_pos.y < ray->token.draw_end.y)
-				draw_token_tex(game, &game->i_token, img,
-					(t_point){win_pos.x, win_pos.y});
-			if (win_pos.y >= ray->lifes.draw_start.y
-				&& win_pos.y < ray->lifes.draw_end.y)
-				draw_lifes_tex(game, &game->i_lifes, img,
-					(t_point){win_pos.x, win_pos.y});
-			if (win_pos.y >= ray->btrap.draw_start.y
-				&& win_pos.y < ray->btrap.draw_end.y)
-				draw_booby_trap(game, trap, *img,
-					(t_point){win_pos.x, win_pos.y});
-			win_pos.y++;
+			order = check_dist_elements(ray);
+			if (order == 1 || order == 2)
+				order_12(game, trap, (t_point){p.x, p.y}, order);
+			else if (order == 3 || order == 4)
+				order_34(game, trap, (t_point){p.x, p.y}, order);
+			else
+				order_56(game, trap, (t_point){p.x, p.y}, order);
+			p.y++;
 		}
 	}
 }
@@ -71,6 +67,7 @@ void	draw_wall_tex(t_game *game, t_img *wall, t_img *img, t_point pxl_pos)
 {
 	unsigned int	color;
 
+	game->ray->texture.y = (int)game->ray->texture_pos_y % wall->height;
 	game->ray->texture.y = (int)game->ray->texture_pos_y % wall->height;
 	game->ray->texture_pos_y += game->ray->pxl_step;
 	color = get_pixel_color(*wall, game->ray->texture.x, game->ray->texture.y);

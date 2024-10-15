@@ -6,7 +6,7 @@
 /*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/20 16:37:53 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/15 11:48:48 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:14:10 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	ft_find_exit(char **map, t_game *game)
 		x = 0;
 		while (map[y] && map[y][x] != '\0')
 		{
-			if ((map[y][x]) == 'D')
+			if ((map[y][x]) == DOOR)
 			{
 				game->map->exit.x = x;
 				game->map->exit.y = y;
@@ -90,7 +90,7 @@ int	control_fill_final(char **map, t_game *game)
 		x = 0;
 		while (map[y][x] != '\0')
 		{
-			if (map[y][x] == 'T')
+			if (map[y][x] == TOKEN)
 				t++;
 			x++;
 		}

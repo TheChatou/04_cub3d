@@ -6,7 +6,7 @@
 /*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 15:58:03 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/15 11:51:51 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:14:26 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,10 @@ int	ft_check_lines(t_game *game)
 	size_t	i;
 	size_t	j;
 	int		count;
-	int		token;
 
 	i = -1;
-	token = 0;
 	count = 0;
+	game->has_token = 0;
 	while (game->map->map[++i])
 	{
 		j = -1;
@@ -48,13 +47,13 @@ int	ft_check_lines(t_game *game)
 			if (ft_check_symb(game->map->map[i][j]))
 				return (1);
 			if (!ft_player_symb(game->map->map[i][j])
-				|| game->map->map[i][j] == 'D')
+				|| game->map->map[i][j] == DOOR)
 				count++;
-			if (game->map->map[i][j] == 'T')
-				token++;
+			if (game->map->map[i][j] == TOKEN)
+				game->has_token++;
 		}
 	}
-	if (count != 2 || token < 1)
+	if (count != 2 || game->has_token < 1)
 		return (1);
 	return (0);
 }

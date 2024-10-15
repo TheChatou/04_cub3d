@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 11:25:21 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/10 13:41:19 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/14 18:12:56 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	draw_lifes_tex(t_game *game, t_img *i_lifes, t_img *img,
 	unsigned int	color;
 	t_dpoint		relative_pos;
 
+	if (!is_to_draw(pxl_pos.y, &game->ray->lifes))
+		return ;
 	relative_pos.y = (double)(pxl_pos.y - game->ray->lifes.draw_start.y)
 		/ game->ray->lifes.line_height;
 	relative_pos.x = (double)(pxl_pos.x - game->ray->lifes.draw_start.x)
@@ -87,6 +89,8 @@ void	draw_token_tex(t_game *game, t_img *i_token,
 	unsigned int	color;
 	t_dpoint		relative_pos;
 
+	if (!is_to_draw(pxl_pos.y, &game->ray->token))
+		return ;
 	relative_pos.y = (double)(pxl_pos.y - game->ray->token.draw_start.y)
 		/ game->ray->token.line_height;
 	relative_pos.x = (double)(pxl_pos.x - game->ray->token.draw_start.x)
@@ -110,6 +114,8 @@ void	draw_booby_trap(t_game *game, t_img *trap, t_img img, t_point pxl_pos)
 	unsigned int	color;
 	t_line			*btrap;
 
+	if (!is_to_draw(pxl_pos.y, &game->ray->btrap))
+		return ;
 	btrap = &game->ray->btrap;
 	btrap->relative_pos.y = (double)(pxl_pos.y - btrap->draw_start.y)
 		/ btrap->line_height;

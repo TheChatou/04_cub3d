@@ -6,7 +6,7 @@
 /*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:41:38 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/14 15:42:03 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:18:54 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,10 @@ void	init_all_t_imgs(t_game *game)
 	init_img(&game->i_ceiling, TILE_SIZE);
 	init_img(&game->i_hands, TILE_SIZE);
 	init_img(&game->i_heart, TILE_SIZE);
+	init_img(&game->i_lifes, TILE_SIZE);
 	init_img(&game->i_token, TILE_SIZE);
 	init_img(&game->i_door, TILE_SIZE);
-	init_img(&game->i_intro[0], TILE_SIZE);
-	init_img(&game->i_intro[1], TILE_SIZE);
-	init_img(&game->i_intro[2], TILE_SIZE);
-	init_img(&game->i_intro[3], TILE_SIZE);
-	init_img(&game->i_btrap[0], 100);
-	init_img(&game->i_btrap[1], 100);
-	init_img(&game->i_btrap[2], 100);
-	init_img(&game->i_btrap[3], 100);
+	init_t_img_tab(game->i_intro, 100);
+	init_t_img_tab(game->i_btrap, TILE_SIZE);
+	init_t_img_tab(game->i_exit, TILE_SIZE);
 }

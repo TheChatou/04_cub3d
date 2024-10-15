@@ -6,7 +6,7 @@
 #    By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 14:50:30 by fcoullou          #+#    #+#              #
-#    Updated: 2024/10/14 14:22:56 by mamoulin         ###   ########.fr        #
+#    Updated: 2024/10/15 12:05:51 by mamoulin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SRC				= $(addprefix $(SRC_PATH), \
 											main.c) \
 				$(addprefix $(SRC_PATH)anim/, \
 											anim_00_LoadingScreen.c \
-											anim_01_BoobyTrap.c) \
+											anim_01_BoobyTrap.c \
+											anim_02_Exit.c) \
 				$(addprefix $(SRC_PATH)flood_fill/, \
 											flood_fill_utils.c \
 											flood_fill.c) \
@@ -66,7 +67,6 @@ SRC				= $(addprefix $(SRC_PATH), \
 											check_map_symbs.c \
 											control_rights.c \
 											errors.c \
-											free_functions.c \
 											parsing_map_info.c \
 											parsing_map_info1.c \
 											parsing_map1.c \
@@ -83,7 +83,8 @@ SRC				= $(addprefix $(SRC_PATH), \
 											init_00_player.c \
 											init_01_game.c \
 											game_00_Start.c \
-											game_01_UserInterface.c) \
+											game_01_UserInterface.c \
+											game_02_UserInterface.c) \
 				$(addprefix $(SRC_PATH)utils/, \
 											utils_00.c \
 											utils_01.c \
@@ -94,7 +95,8 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											main_bonus.c) \
 				$(addprefix $(SRC_PATH)anim/, \
 											anim_00_LoadingScreen.c \
-											anim_01_BoobyTrap.c) \
+											anim_01_BoobyTrap.c \
+											anim_02_Exit.c) \
 				$(addprefix $(SRC_PATH)flood_fill/, \
 											flood_fill_utils_bonus.c \
 											flood_fill.c) \
@@ -110,7 +112,7 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											mouse_tracking.c) \
 				$(addprefix $(SRC_PATH)moves/, \
 											bonus_managment.c \
-											control_moves.c \
+											control_moves_bonus.c \
 											life_management.c \
 											move_forward.c \
 											move_backward.c \
@@ -121,7 +123,6 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											check_map_symbs_bonus.c \
 											control_rights.c \
 											errors.c \
-											free_functions.c \
 											parsing_map_info.c \
 											parsing_map_info1.c \
 											parsing_map1.c \
@@ -134,12 +135,14 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											raycasting_01_calc_bonus.c \
 											raycasting_02_draw_bonus.c \
 											raycasting_03_utils.c \
-											raycasting_04_bonus.c) \
+											raycasting_04_bonus.c \
+											raycasting_05_bonus.c) \
 				$(addprefix $(SRC_PATH)start_n_init/, \
 											init_00_player.c \
 											init_01_game_bonus.c \
 											game_00_Start_bonus.c \
-											game_01_UserInterface.c) \
+											game_01_UserInterface.c \
+											game_02_UserInterface.c) \
 				$(addprefix $(SRC_PATH)utils/, \
 											utils_00.c \
 											utils_01.c \
@@ -221,7 +224,7 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@printf "$(GREEN)[COMPILATION]$(RESET) : $<$(CLEAR_EOL)\r"
 	@$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $< 
 #------------------------------------------------------------------------------#
-bonus: $(NAME_BONUS)
+bonus: fclean $(NAME_BONUS)
 
 $(NAME_BONUS): $(OBJ_BONUS) $(MLX)
 	@if [ ! -f $(LIBFT)/libft.a ]; then make -s -C $(LIBFT); fi

@@ -5,21 +5,88 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/07 18:24:05 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/07 18:24:32 by fcoullou         ###   ########.fr       */
+/*   Created: 2024/07/29 14:15:00 by mamoulin          #+#    #+#             */
+/*   Updated: 2024/10/15 11:33:55 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3D.h"
+#include "../../include/cub3D.h"
 
-void	free_btrap(t_game *game)
+int	ft_free_tab(char **tab)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i < 4)
+	if (!tab)
+		return (0);
+	while (tab[i])
 	{
-		free_img(game, &game->i_btrap[i]);
+		free(tab[i]);
 		i++;
 	}
+	free(tab);
+	return (0);
+}
+
+void	ft_free_map_tab(t_game *game)
+{
+	size_t	i;
+
+	i = 0;
+	if (!game->map->map)
+		return ;
+	ft_free_tab(game->map->map);
+}
+
+void	ft_free_all_textures_colors(t_game *game)
+{
+	if (game->map->path_wall_n)
+		free(game->map->path_wall_n);
+	if (game->map->path_wall_s)
+		free(game->map->path_wall_s);
+	if (game->map->path_wall_e)
+		free(game->map->path_wall_e);
+	if (game->map->path_wall_w)
+		free(game->map->path_wall_w);
+	if (game->map->ceiling)
+		free(game->map->ceiling);
+	if (game->map->floor)
+		free(game->map->floor);
+}
+
+void	destroy_imgs(t_game *game)
+{
+	free_img(game, &game->raycasted);
+	free_img(game, &game->home_screen);
+	free_img(game, &game->i_loading);
+	free_img(game, &game->i_home);
+	free_img(game, &game->i_flash);
+	free_img(game, &game->i_wall_n);
+	free_img(game, &game->i_wall_s);
+	free_img(game, &game->i_wall_e);
+	free_img(game, &game->i_wall_w);
+	free_img(game, &game->i_floor);
+	free_img(game, &game->i_ceiling);
+	free_img(game, &game->i_hands);
+	free_img(game, &game->i_heart);
+	free_img(game, &game->i_lifes);
+	free_img(game, &game->i_token);
+	free_img(game, &game->i_door);
+	free_anims(game, game->i_btrap);
+	free_anims(game, game->i_exit);
+	free_anims(game, game->i_intro);
+}
+
+void	ft_free_all(t_game *game)
+{
+	if (game->ray)
+		free(game->ray);
+	if (game->map_file)
+		free(game->map_file);
+	if (game->map->map)
+		ft_free_map_tab(game);
+	ft_free_all_textures_colors(game);
+	destroy_imgs(game);
+	if (game->map)
+		free(game->map);
 }

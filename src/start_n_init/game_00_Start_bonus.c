@@ -6,7 +6,7 @@
 /*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 15:58:19 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/15 11:49:05 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:18:29 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,21 +90,4 @@ void	*pre_raycasting(void *arg)
 	if (!raycasting(game))
 		return (ft_putstr_fd("Error\nRaycasting failed\n", STDERR_FILENO), NULL);
 	return (NULL);
-}
-
-//  Affiche l'écran d'accueil.
-bool	display_home_screen(t_game *game, t_img *home)
-{
-	init_img(home, TILE_SIZE);
-	if (game->level == 1
-		&& !load_img_n_addr(game, home, HOMESCREEN_PATH_1, "the home screen"))
-		return (false);
-	else if (game->level == 2 && game->player.shrink != SHRINK
-		&& !load_img_n_addr(game, home, HOMESCREEN_PATH_2, "the home screen"))
-		return (false);
-	else if (game->level == 2 && game->player.shrink == SHRINK
-		&& !load_img_n_addr(game, home, ENDING_PATH, "the ending screen"))
-		return (false);
-	mlx_put_image_to_window(game->mlx, game->win.win, home->ptr, 0, 0);
-	return (true);
 }

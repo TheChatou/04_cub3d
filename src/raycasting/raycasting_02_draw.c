@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/11 13:56:42 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/03 18:18:24 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:30:07 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@ t_img	draw_line(t_game *game, t_ray *ray, t_img img, int x)
 {
 	t_img		wall;
 	int			y;
+	int			real_start;
 
 	y = 0;
 	wall = select_wall(game, ray);
 	calc_wall_tex_pos(game, ray, &wall);
 	ray->pxl_step = 1.0 * wall.height / ray->line_height;
-	ray->texture_pos_y = ray->draw_start * ray->pxl_step;
+	real_start = -(ray->line_height / 2) + (WIN_CENTER)
+		- ((WIN_CENTER * game->player.shrink / (ray->perp_wall_dist)));
+	ray->texture_pos_y = (ray->draw_start - real_start) * ray->pxl_step;
 	while (y < WIN_SIZE)
 	{
 		if (y < ray->draw_start)

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/fcoullou/GITHUB/Days/04/cub3d_v2/src/raycasting",
-      "program": "/home/fcoullou/GITHUB/Days/04/cub3d_v2/src/raycasting/build/Debug/outDebug",
+      "cwd": "/home/fcoullou/GITHUB/Days/04/cub3d_v2/maps",
+      "program": "/home/fcoullou/GITHUB/Days/04/cub3d_v2/maps/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

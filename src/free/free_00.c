@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:34:13 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/07 18:24:23 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:27:24 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,14 @@ void	free_map(t_map *map)
 	free(map->map);
 }
 
-void	free_intro(t_game *game)
+void	free_anims(t_game *game, t_img *img)
 {
 	int	i;
 
 	i = 0;
-	while (i < 5)
+	while (i < 4)
 	{
-		free_img(game, &game->i_intro[i]);
+		free_img(game, &img[i]);
 		i++;
 	}
 }

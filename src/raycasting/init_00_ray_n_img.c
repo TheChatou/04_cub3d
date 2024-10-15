@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_ray_n_img.c                                   :+:      :+:    :+:   */
+/*   init_00_ray_n_img.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/30 19:52:20 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/09/04 13:45:54 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:58:04 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,14 @@ void	init_img(t_img *img, int size)
 
 bool	set_img(t_game *game, t_img *img)
 {
-	img->ptr = mlx_new_image(game->mlx, game->win.width, game->win.height);
-	if (!img->ptr)
-		return ((ft_putstr_fd("Error\nCouldn't create the image\n",
-					STDERR_FILENO)), false);
-	img->addr = mlx_get_data_addr(img->ptr, &img->bits_per_pixel,
-			&img->line_length, &img->endian);
+	if (!img->ptr || !game->mlx)
+	{
+		img->ptr = mlx_new_image(game->mlx, game->win.width, game->win.height);
+		if (!img->ptr)
+			return ((ft_putstr_fd("Error\nCouldn't create the image\n",
+						STDERR_FILENO)), false);
+		img->addr = mlx_get_data_addr(img->ptr, &img->bits_per_pixel,
+				&img->line_length, &img->endian);
+	}
 	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 14:49:55 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/10 13:25:00 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:41:32 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,7 @@
 
 bool	block_sb(t_game *game, int y, int x)
 {
-	if (game->has_token && game->map->map[y][x] == DOOR)
-		return (true);
-	if (game->level == 2 && game->map->map[y][x] == TOKEN)
-	{
-		if (fabs(game->player.pos.x - game->potion_pos.x) < 0.7
-			&& fabs(game->player.pos.y - game->potion_pos.y) < 0.7)
-			drink_me(game);
-		return (true);
-	}
 	if (game->map->map[y][x] == WALL)
-		return (true);
-	if (game->map->map[y][x] == TRAP)
 		return (true);
 	return (false);
 }

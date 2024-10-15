@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   crouch.c                                           :+:      :+:    :+:   */
+/*   bonus_managment.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:34:34 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/10 13:44:55 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:50:10 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,29 @@ void	drink_me(t_game *game)
 	game->player.speed = 0.05;
 	free_img(game, &game->i_token);
 	load_img_n_addr(game, &game->i_token, TABLE_PATH, "the table");
-	free_img(game, &game->i_door);
-	load_img_n_addr(game, &game->i_door, OPEN_DOOR_PATH_2, "the open door");
+	load_i_exit(game);
 }
 
 void	screen_flash(t_game *game, char *path, char *error)
 {
-	free_img(game, &game->home_screen);
-	load_img_n_addr(game, &game->home_screen, path, error);
+	// free_img(game, &game->home_screen);
+	load_img_n_addr(game, &game->i_flash, path, error);
+	// set_img(game, &game->home_screen);
+	draw_homescreen(&game->i_flash, &game->home_screen);
 	mlx_put_image_to_window(game->mlx, game->win.win,
 		game->home_screen.ptr, 0, 0);
-	usleep(50);
+	// usleep(50);
+}
+
+void	print_clue(t_game *game)
+{
+	if (game->level == 1 && game->has_token)
+	{
+		free_img(game, &game->i_door);
+		load_img_n_addr(game, &game->i_door, DOOR_LVL1_PATH_2,
+			"the Rabbit hole's message");
+		if (!game->rabbit)
+			screen_flash(game, BLACK_PATH, "the black screen");
+		game->rabbit = 1;
+	}	
 }

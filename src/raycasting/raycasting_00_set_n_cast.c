@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/25 19:19:32 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/10 14:08:36 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/11 14:15:40 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,18 +100,18 @@ void	cast_ray(t_game *game, t_ray *ray)
 			ray->side_dist.x += ray->delta_dist.x;
 			ray->map_pos.x += ray->step.x;
 			if (ray->dir.x < 0)
-				ray->side = N_SIDE;
+				ray->side = W_SIDE;
 			else
-				ray->side = S_SIDE;
+				ray->side = E_SIDE;
 		}
 		else
 		{
 			ray->side_dist.y += ray->delta_dist.y;
 			ray->map_pos.y += ray->step.y;
 			if (ray->dir.y < 0)
-				ray->side = W_SIDE;
+				ray->side = N_SIDE;
 			else
-				ray->side = E_SIDE;
+				ray->side = S_SIDE;
 		}
 		ray_hit_check(game, ray);
 	}

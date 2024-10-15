@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 14:26:23 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/09/24 14:27:03 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/14 15:42:40 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,18 @@ void	load_i_btrap(t_game *game)
 
 void	set_p_btrap(t_game *game)
 {
-	game->p_btrap[0] = BTRAP_L1_1;
-	game->p_btrap[1] = BTRAP_L1_2;
-	game->p_btrap[2] = BTRAP_L1_3;
-	game->p_btrap[3] = BTRAP_L1_4;
+	if (game->level == 1)
+	{
+		game->p_btrap[0] = BTRAP_L1_1;
+		game->p_btrap[1] = BTRAP_L1_2;
+		game->p_btrap[2] = BTRAP_L1_3;
+		game->p_btrap[3] = BTRAP_L1_4;
+	}
+	else if (game->level == 2)
+	{
+		game->p_btrap[0] = BTRAP_L2_1;
+		game->p_btrap[1] = BTRAP_L2_2;
+		game->p_btrap[2] = BTRAP_L2_3;
+		game->p_btrap[3] = BTRAP_L2_4;
+	}
 }

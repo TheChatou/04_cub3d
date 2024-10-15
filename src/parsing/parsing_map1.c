@@ -6,7 +6,7 @@
 /*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/31 17:29:18 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/15 11:59:52 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/15 12:16:13 by mamoulin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,6 @@ int	ft_check_empty_line(char *src, t_game *game)
 	}
 	return (0);
 }
-
-// int	ft_set_map(t_game *game, char *line, int i)
-// {
-	
-// }
 
 int	ft_stock_map(char *line, t_game *game)
 {
