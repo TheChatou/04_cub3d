@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 17:26:58 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/11 17:18:43 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/14 16:40:06 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,8 @@
 // Les textures
 # define FLOOR_PATH_1		"./assets/Alic3D/Floor_Grass.xpm"
 # define FLOOR_PATH_2		"./assets/Alic3D/Floor2_lvl2.xpm"
-# define DOOR_PATH_1		"./assets/Alic3D/Door_RabbitHole.xpm"
+# define DOOR_LVL1_PATH_1	"./assets/Alic3D/Door_RabbitHole.xpm"
+# define DOOR_LVL1_PATH_2	"./assets/Alic3D/Door_RabbitHole_Mess.xpm"
 # define DOOR_LVL2_PATH_1	"./assets/Alic3D/Tiny_Door_lvl2_1.xpm"
 # define DOOR_LVL2_PATH_2	"./assets/Alic3D/Tiny_Door_lvl2_2.xpm"
 # define OPEN_DOOR_PATH_1	"./assets/Alic3D/Tiny_Open_Door_lvl2_1.xpm"
@@ -138,6 +139,10 @@
 # define BTRAP_L1_2			"./assets/Alic3D/BoobyTrap_lv1_1.xpm"
 # define BTRAP_L1_3			"./assets/Alic3D/BoobyTrap_lv1_2.xpm"
 # define BTRAP_L1_4			"./assets/Alic3D/BoobyTrap_lv1_3.xpm"
+# define BTRAP_L2_1			"./assets/Alic3D/BoobyTrap_lv2_0.xpm"
+# define BTRAP_L2_2			"./assets/Alic3D/BoobyTrap_lv2_1.xpm"
+# define BTRAP_L2_3			"./assets/Alic3D/BoobyTrap_lv2_2.xpm"
+# define BTRAP_L2_4			"./assets/Alic3D/BoobyTrap_lv2_3.xpm"
 
 # define ALPHA_ZERO -16777216
 

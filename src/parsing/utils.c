@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:15:25 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/11 18:00:51 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:31:13 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	check_if_end(t_game *game)
 		}
 		i++;
 	}
-	return (true);
+	return (printf("i : %d j : %d\n", i, j), true);
 }
 
 bool	check_if_dead(t_game *game)
@@ -52,10 +52,10 @@ t_tri_point	find_player_float(t_map *map)
 		{
 			if (map->map[(int)p.y][(int)p.x] == 0)
 				break ;
-			if (map->map[(int)p.y][(int)p.x] == 'N'
-				|| map->map[(int)p.y][(int)p.x] == 'S'
-				|| map->map[(int)p.y][(int)p.x] == 'E'
-				|| map->map[(int)p.y][(int)p.x] == 'W')
+			if (map->map[(int)p.y][(int)p.x] == NORTH
+				|| map->map[(int)p.y][(int)p.x] == SOUTH
+				|| map->map[(int)p.y][(int)p.x] == EAST
+				|| map->map[(int)p.y][(int)p.x] == WEST)
 				return ((t_tri_point){p.x + 0.5, p.y + 0.5, p.z + 0.5});
 			p.x++;
 		}
@@ -76,7 +76,7 @@ void	ft_check_if_token(t_game *game)
 		x = 0;
 		while (game->map->map[y][x])
 		{
-			if (game->map->map[y][x] == 'T')
+			if (game->map->map[y][x] == TOKEN)
 				return ;
 			x++;
 		}

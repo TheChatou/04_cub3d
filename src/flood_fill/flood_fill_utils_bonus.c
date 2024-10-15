@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flood_fill_utils_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 17:59:34 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/09/12 17:59:41 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:13:13 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 bool	check_if_not_walls(char c)
 {
-	if (c == '0' || c == 'T' || c == 'W'
-		|| c == 'E' || c == 'S' || c == 'N'
-		|| c == 'L')
+	if (c == VOID || c == TOKEN || c == WEST
+		|| c == EAST || c == SOUTH || c == NORTH
+		|| c == LIFE)
 		return (true);
 	return (false);
 }

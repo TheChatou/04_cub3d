@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:34:34 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/11 17:46:43 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 10:41:37 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,17 @@ void	screen_flash(t_game *game, char *path, char *error)
 	mlx_put_image_to_window(game->mlx, game->win.win,
 		game->home_screen.ptr, 0, 0);
 	usleep(50);
+}
+
+void	print_clue(t_game *game)
+{
+	if (game->level == 1 && game->has_token)
+	{
+		free_img(game, &game->i_door);
+		load_img_n_addr(game, &game->i_door, DOOR_LVL1_PATH_2,
+			"the Rabbit hole's message");
+		if (!game->rabbit)
+			screen_flash(game, BLACK_PATH, "the black screen");
+		game->rabbit = 1;
+	}	
 }

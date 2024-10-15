@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 16:04:10 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/11 17:27:32 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:23:18 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ bool	set_game(t_game *game, char *av, int level)
 		game->level = 1;
 	else
 		game->level = level;
-	game->has_token = 1;
 	if (ft_stock_map_tab(game->map_file, game)
 		|| ft_check_map(game->map_file, game) || valid_path(game))
 		return (false);

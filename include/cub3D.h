@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:37:13 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/11 18:03:42 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:02:45 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,7 @@ void			calc_booby_trap(t_game *game, t_player *player, t_line *btrap);
 
 //--/raycasting_02_draw.c	---------------------------------------------------/
 t_img			draw_line(t_game *game, t_ray *ray, t_img img, int x);
-void			draw_tokens(t_game *game, t_ray *ray, t_dpoint win_pos,
-					t_img *img);
+void			draw_elements(t_game *game, t_ray *ray, t_dpoint p);
 void			draw_wall_tex(t_game *game, t_img *wall,
 					t_img *img, t_point pxl_pos);
 void			draw_floor_tex(t_game *game, t_ray *ray,
@@ -127,6 +126,8 @@ void			draw_ceiling_tex(t_game *game, t_ray *ray,
 unsigned int	get_pixel_color(t_img img, int x, int y);
 void			set_pixel(t_img *img, int x, int y, unsigned int color);
 t_img			select_wall(t_game *game, t_ray *ray);
+int				check_dist_elements(t_ray *ray);
+bool			is_to_draw(int y, t_line *line);
 
 //--/raycasting_04_bonus.c	---------------------------------------------------/
 void			calc_ray_token(t_game *game, t_player *player, t_line *tk);
@@ -137,6 +138,11 @@ void			draw_token_tex(t_game *game, t_img *token,
 					t_img *img, t_point pxl_pos);
 void			draw_booby_trap(t_game *game, t_img *trap,
 					t_img img, t_point pxl_pos);
+
+//--/raycasting_05_bonus.c	---------------------------------------------------/
+void			order_12(t_game *game, t_img *trap, t_point p, int order);
+void			order_34(t_game *game, t_img *trap, t_point p, int order);
+void			order_56(t_game *game, t_img *trap, t_point p, int order);
 
 ////START_N_INIT	////////////////////////////////////////////////////////////
 //--/_init_00_player.c	-------------------------------------------------------/
@@ -207,6 +213,7 @@ void			game_over(void);
 void			crouch(t_player *player);
 void			drink_me(t_game *game);
 void			screen_flash(t_game *game, char *path, char *error);
+void			print_clue(t_game *game);
 
 //--/control_moves.c	-------------------------------------------------------/
 bool			block_sb(t_game *game, int a, int b2);
@@ -262,7 +269,8 @@ int				ft_pass_map_info(char *src);
 int				ft_free_tab(char **tab);
 
 //--/parsing_map_info1.c	---------------------------------------------------/
-void			ft_quit_textures_colors(char *src, char **tab, t_game *game, char *mss);
+void			ft_quit_textures_colors(char *src, char **tab,
+					t_game *game, char *mss);
 void			ft_change_walls_text(char *src, t_game *game);
 void			ft_change_colors_text(t_color *color, t_game *game);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_elements.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mamoulin <mamoulin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:15:08 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/11 17:21:20 by mamoulin         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:10:07 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ int	ft_check_lines(t_game *game)
 			if (ft_check_symb(game->map->map[i][j]))
 				return (1);
 			if (!ft_player_symb(game->map->map[i][j])
-				|| game->map->map[i][j] == 'D')
+				|| game->map->map[i][j] == DOOR)
 				count++;
-			if (game->map->map[i][j] == 'T')
+			if (game->map->map[i][j] == TOKEN)
 				token++;
 		}
 	}

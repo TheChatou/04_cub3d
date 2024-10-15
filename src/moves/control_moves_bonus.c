@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   control_moves.c                                    :+:      :+:    :+:   */
+/*   control_moves_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 14:49:55 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/10 13:25:00 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/14 12:34:21 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool	block_sb(t_game *game, int y, int x)
 {
 	if (game->has_token && game->map->map[y][x] == DOOR)
-		return (true);
+		return (print_clue(game), true);
 	if (game->level == 2 && game->map->map[y][x] == TOKEN)
 	{
 		if (fabs(game->player.pos.x - game->potion_pos.x) < 0.7

@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/13 12:35:12 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/11 17:34:21 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/14 14:39:21 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,7 @@ typedef struct s_game
 	bool			print;
 	int				cub_info;
 	int				nl;
+	bool			rabbit;
 }	t_game;
 
 #endif
