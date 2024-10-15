@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 14:34:34 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/15 11:50:10 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 13:37:45 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,11 @@ void	drink_me(t_game *game)
 
 void	screen_flash(t_game *game, char *path, char *error)
 {
-	// free_img(game, &game->home_screen);
 	load_img_n_addr(game, &game->i_flash, path, error);
-	// set_img(game, &game->home_screen);
 	draw_homescreen(&game->i_flash, &game->home_screen);
 	mlx_put_image_to_window(game->mlx, game->win.win,
 		game->home_screen.ptr, 0, 0);
-	// usleep(50);
+	usleep(50);
 }
 
 void	print_clue(t_game *game)

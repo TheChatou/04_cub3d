@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 15:34:13 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/15 11:27:24 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 13:37:09 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	destroy_game(t_game *game)
 void	free_game(t_game *game)
 {
 	ft_free_all(game);
+	pthread_mutex_destroy(&game->mutex);
 	if (game->win.win)
 		mlx_destroy_window(game->mlx, game->win.win);
 	if (game->mlx)
@@ -29,8 +30,6 @@ void	free_game(t_game *game)
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
 	}
-	pthread_mutex_destroy(&game->mutex);
-	ft_memset(game, 1, sizeof(t_game));
 }
 
 void	free_img(t_game *game, t_img *img)
