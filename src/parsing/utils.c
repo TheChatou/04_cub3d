@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:15:25 by mamoulin          #+#    #+#             */
-/*   Updated: 2024/10/14 12:31:13 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:53:34 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool	check_if_end(t_game *game)
 		}
 		i++;
 	}
-	return (printf("i : %d j : %d\n", i, j), true);
+	return (true);
 }
 
 bool	check_if_dead(t_game *game)

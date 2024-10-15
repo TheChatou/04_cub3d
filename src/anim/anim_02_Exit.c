@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/11 14:46:15 by fcoullou          #+#    #+#             */
-/*   Updated: 2024/10/11 15:48:04 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:35:58 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	load_i_exit(t_game *game)
 	i = -1;
 	set_p_exit(game);
 	if (game->level == 2 && !game->has_token)
-		free_exit(game);
+		free_anims(game, game->i_exit);
 	while (++i < 4)
 	{
 		if (!game->p_exit[i])

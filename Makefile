@@ -6,7 +6,7 @@
 #    By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/03 14:50:30 by fcoullou          #+#    #+#              #
-#    Updated: 2024/10/15 11:00:33 by fcoullou         ###   ########.fr        #
+#    Updated: 2024/10/15 11:37:56 by fcoullou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,6 @@ SRC				= $(addprefix $(SRC_PATH), \
 											check_map_symbs.c \
 											control_rights.c \
 											errors.c \
-											free_functions.c \
 											parsing_map_info.c \
 											parsing_map_info1.c \
 											parsing_map1.c \
@@ -124,7 +123,6 @@ SRC_BONUS		= $(addprefix $(SRC_PATH), \
 											check_map_symbs_bonus.c \
 											control_rights.c \
 											errors.c \
-											free_functions.c \
 											parsing_map_info.c \
 											parsing_map_info1.c \
 											parsing_map1.c \
@@ -210,7 +208,7 @@ VALCHILD=--trace-children=yes
 
 ################################################################################
 ##	RULES		################################################################
-all: $(NAME_BONUS)
+all: $(NAME)
 
 $(MLX):
 	@ranlib $(MLX_PATH)libmlx.a

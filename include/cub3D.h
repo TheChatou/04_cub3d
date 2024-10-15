@@ -6,7 +6,7 @@
 /*   By: fcoullou <fcoullou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/23 11:37:13 by chatou            #+#    #+#             */
-/*   Updated: 2024/10/15 11:02:45 by fcoullou         ###   ########.fr       */
+/*   Updated: 2024/10/15 11:29:54 by fcoullou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,13 @@ int				destroy_game(t_game *game);
 void			free_game(t_game *game);
 void			free_img(t_game *game, t_img *img);
 void			free_map(t_map *map);
-void			free_intro(t_game *game);
+void			free_anims(t_game *game, t_img *img);
 
-//--/free_01.c	---------------------------------------------------------------/
-void			free_btrap(t_game *game);
-void			free_exit(t_game *game);
+//--/free_functions.c	-------------------------------------------------------/
+void			ft_free_map_tab(t_game *game);
+void			ft_free_all_textures_colors(t_game *game);
+void			ft_free_all(t_game *game);
+void			destroy_imgs(t_game *game);
 
 ////HOOKS	////////////////////////////////////////////////////////////////////
 //--/hook_actions_00.c	-------------------------------------------------------/
@@ -86,8 +88,6 @@ int				handle_cam_motion(t_game *game, int keycode);
 
 ////MOUSE	////////////////////////////////////////////////////////////////////
 //--/mouse_tracking.c	-------------------------------------------------------/
-int				handle_mouse_press(int button, int x, int y, t_game *game);
-int				handle_mouse_release(int button, int x, int y, t_game *game);
 void			rotate_cam(t_player *player, double angle);
 int				handle_mouse_motion(int x, int y, t_game *game);
 
@@ -253,12 +253,6 @@ void			ft_access_textures(t_game *game);
 //--/errors.c	---------------------------------------------------------------/
 void			ft_error_map(t_game *game, char *str);
 void			ft_error_map1(char *str, t_game *game);
-
-//--/free_functions.c	-------------------------------------------------------/
-void			ft_free_map_tab(t_game *game);
-void			ft_free_all_textures_colors(t_game *game);
-void			ft_free_all(t_game *game);
-void			destroy_imgs(t_game *game);
 
 //--/parsing_map_info.c	-------------------------------------------------------/
 void			ft_quit_textures_colors(char *src, char **tab,
