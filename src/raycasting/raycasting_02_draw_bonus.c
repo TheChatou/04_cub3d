@@ -85,6 +85,7 @@ void	draw_floor_tex(t_game *game, t_ray *ray, t_img img, t_point pxl_pos)
 	unsigned int	color;
 
 	floor_step = calc_floor_tex_pos(game, ray, pxl_pos.y, &floor);
+	(void)floor_step;
 	floor_tex.x = (int)(floor.x * img.width) % img.width;
 	floor_tex.y = (int)(floor.y * img.height) % img.height;
 	color = get_pixel_color(img, floor_tex.x, floor_tex.y);

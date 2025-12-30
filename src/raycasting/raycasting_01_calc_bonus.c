@@ -85,7 +85,7 @@ t_dpoint	calc_floor_tex_pos(t_game *game, t_ray *ray, int y, t_dpoint *floor)
 void	calc_ceiling_tex_pos(t_game *game, t_ray *ray, int y, t_dpoint *ceiling)
 {
 	double		row_distance;
-	t_dpoint	ceiling_step;
+	// t_dpoint	ceiling_step;
 	double		center;
 
 	if (game->player.shrink == SHRINK)
@@ -96,8 +96,8 @@ void	calc_ceiling_tex_pos(t_game *game, t_ray *ray, int y, t_dpoint *ceiling)
 		row_distance = center / (0.8 * (y - WIN_SIZE - WIN_SIZE));
 	else
 		row_distance = center / (2.0 * (WIN_SIZE - y) - WIN_SIZE);
-	ceiling_step.x = row_distance * (game->player.dir.x - game->player.plane.x);
-	ceiling_step.y = row_distance * (game->player.dir.y - game->player.plane.y);
+	// ceiling_step.x = row_distance * (game->player.dir.x - game->player.plane.x);
+	// ceiling_step.y = row_distance * (game->player.dir.y - game->player.plane.y);
 	ceiling->x = (game->player.pos.x + row_distance * ray->dir.x);
 	ceiling->y = (game->player.pos.y + row_distance * ray->dir.y);
 	if (game->level == 1)

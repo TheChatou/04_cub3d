@@ -30,9 +30,6 @@ int	ft_free_tab(char **tab)
 
 void	ft_free_map_tab(t_game *game)
 {
-	size_t	i;
-
-	i = 0;
 	if (!game->map->map)
 		return ;
 	ft_free_tab(game->map->map);

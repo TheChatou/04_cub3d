@@ -45,8 +45,9 @@ int	ft_check_lines(t_game *game)
 		j = -1;
 		while (game->map->map[i][++j] != '\0')
 		{
-			if (ft_check_symb(game->map->map[i][j]))
+			if (ft_check_symb(game->map->map[i][j])) {
 				return (1);
+			}
 			if (!ft_player_symb(game->map->map[i][j])
 				|| game->map->map[i][j] == DOOR)
 				count++;
