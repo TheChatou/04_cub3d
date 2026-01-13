@@ -1,7 +1,7 @@
 # cub3D  
 *Raycaster en C — moteur graphique temps réel, miniLibX, illusion 3D from scratch.*
 <p align="center">
-  <img src="assets/readme/prevStrip.png.gif" width="900">
+  <img src="assets/readme/prevStrip.png" width="900">
 </p>
 
 ---
