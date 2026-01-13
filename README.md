@@ -17,7 +17,7 @@ Le projet consiste à afficher une **vue 3D dynamique d’un labyrinthe**, à pa
 Chaque image affichée à l’écran est le résultat de calculs géométriques effectués à la main, pour chaque colonne de pixels.
 
 Pas de magie.  
-Pas de moteur.  
+Pas de moteur 3D.  
 Juste des maths, des pixels, et des choix techniques qui se voient immédiatement.
 
 ---
@@ -40,39 +40,74 @@ L’objectif est de comprendre :
 
 cub3D est un projet qui force à être rigoureux, ou à regarder son moteur se désintégrer visuellement.
 
+---
+## Partie mandatory — Le socle du moteur
+
 <p align="center">
   <img src="assets/readme/Mandatory.gif" width="600">
 </p>
+Cette séquence montre la partie obligatoire du projet, telle qu’attendue par le sujet, sans aucun bonus.
+
+Elle comprend :
+- un ray-casting fonctionnel
+- une navigation fluide (déplacements + rotations)
+- des murs texturés selon leur orientation
+- un rendu stable, sans artefacts
+
+un parsing strict et sécurisé du fichier .cub
+
+C’est la fondation technique du moteur.
+Et soyons honnêtes : c’est fonctionnel, mais c’est moche.
+
+Il était donc hors de question de rendre un projet visuellement pauvre, sans âme ni intention.
+Nous avons donc largement investi la partie bonus, en allant parfois bien au-delà de ce qui était proposé par le sujet.
 
 ---
 
 ## Mon rôle & approche
 
-cub3D est un **projet réalisé en équipe**, mais j’ai abordé mon travail avec une contrainte claire :  
-penser ce projet comme **un moteur**, pas comme une simple réponse au sujet.
+
+cub3D est un **projet réalisé en duo**, mais j’ai abordé mon travail avec une contrainte claire :  
+penser ce projet comme **un vrai jeu**, pas comme une simple réponse au sujet.
 
 Mon implication couvre notamment :
-
 - implémentation complète du **ray-casting**
 - gestion du **point de vue**, des rotations et des déplacements
-- parsing strict et robuste du fichier `.cub`
 - gestion des **textures directionnelles** (N / S / E / W)
 - mise en place d’une **boucle de rendu temps réel stable**
 - gestion propre des erreurs et de la mémoire
+- création de l’ensemble des assets visuels (textures, sprites, direction artistique)
 
-Le but n’était pas “que ça marche”.  
-Le but était de comprendre **pourquoi ça marche**.
+---
+
+## Bonus implémentés
+
+<p align="center">
+  <img src="assets/readme/level1_1.gif" width="600">
+</p>
+
+Au-delà de la partie mandatory, j’ai développé plusieurs fonctionnalités avancées, certaines allant plus loin que les bonus explicitement demandés par le sujet :
+- collisions murales précises
+- portes interactives
+- sprites animés
+- rotation du point de vue à la souris
+
+Bonus Persos :
+- crouch (variation dynamique de la hauteur de caméra)
+- animations et comportements liés au gameplay
+
+Ces ajouts ont nécessité des ajustements fins du moteur :
+recalculs de projection, gestion des collisions, et maintien d’un rendu fluide malgré des contraintes supplémentaires.
 
 ---
 
 ## Ray-casting — Le cœur du moteur
 
 <p align="center">
-  <img src="assets/readme/level1_1.gif" width="600">
+  <img src="assets/readme/level1_2.gif" width="600">
 </p>
 
 Le principe du ray-casting est simple sur le papier :
-
 - le joueur a une position et une direction
 - pour chaque colonne de l’écran, on lance un rayon
 - le rayon avance dans la map jusqu’à toucher un mur
@@ -92,7 +127,7 @@ Une erreur mathématique se voit immédiatement à l’écran.
 ## Parsing — Le fichier `.cub` comme contrat
 
 <p align="center">
-  <img src="assets/readme/level1_2.gif" width="600">
+  <img src="assets/readme/level1_3.gif" width="600">
 </p>
 
 La scène est décrite par un fichier `.cub` contenant :
@@ -109,10 +144,6 @@ Contraintes fortes :
 
 Le parsing est volontairement strict.  
 Un moteur instable commence presque toujours par une entrée mal contrôlée.
-
-<p align="center">
-  <img src="assets/readme/level1_3.gif" width="600">
-</p>
 
 ---
 
@@ -161,8 +192,7 @@ make bonus
 
 Lancement avec les maps de test :
 ```bash
-./cub3D maps/level1_bonus.cub
-./cub3D maps/level2_bonus.cub
+./cub3D maps/level1_bonus.cub maps/level2_bonus.cub
 ```
 
 ---
