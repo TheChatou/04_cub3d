@@ -41,7 +41,7 @@ L’objectif est de comprendre :
 cub3D est un projet qui force à être rigoureux, ou à regarder son moteur se désintégrer visuellement.
 
 <p align="center">
-  <img src="assets/readme/Mandatory.gif" width="900">
+  <img src="assets/readme/Mandatory.gif" width="600">
 </p>
 
 ---
@@ -68,7 +68,7 @@ Le but était de comprendre **pourquoi ça marche**.
 ## Ray-casting — Le cœur du moteur
 
 <p align="center">
-  <img src="assets/readme/level1_1.gif" width="900">
+  <img src="assets/readme/level1_1.gif" width="600">
 </p>
 
 Le principe du ray-casting est simple sur le papier :
@@ -92,7 +92,7 @@ Une erreur mathématique se voit immédiatement à l’écran.
 ## Parsing — Le fichier `.cub` comme contrat
 
 <p align="center">
-  <img src="assets/readme/level1_2.gif" width="900">
+  <img src="assets/readme/level1_2.gif" width="600">
 </p>
 
 La scène est décrite par un fichier `.cub` contenant :
@@ -111,7 +111,7 @@ Le parsing est volontairement strict.
 Un moteur instable commence presque toujours par une entrée mal contrôlée.
 
 <p align="center">
-  <img src="assets/readme/level1_3.gif" width="900">
+  <img src="assets/readme/level1_3.gif" width="600">
 </p>
 
 ---
@@ -119,7 +119,7 @@ Un moteur instable commence presque toujours par une entrée mal contrôlée.
 ## Déplacements & perception
 
 <p align="center">
-  <img src="assets/readme/level2.gif" width="900">
+  <img src="assets/readme/level2.gif" width="600">
 </p>
 
 Le joueur peut :
@@ -189,12 +189,9 @@ cub3D démontre :
 
 ---
 
-## Équipe
-
 ### Contributeur
 
-<!-- Badge à compléter -->
-<!-- Exemple :
-[![name](https://img.shields.io/badge/Project%20mate-Name-blue)](https://github.com/username)
--->
+<td align="center">
+  <a href="https://github.com/BBoroboro"><strong>MathieuMoulin</strong></a>
+</td>
 
