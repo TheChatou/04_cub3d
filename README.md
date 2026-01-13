@@ -1,8 +1,7 @@
 # cub3D  
 *Raycaster en C — moteur graphique temps réel, miniLibX, illusion 3D from scratch.*
-
 <p align="center">
-  <img src="assets/readme/Mandatory.gif" width="900">
+  <img src="assets/readme/prevStrip.png.gif" width="900">
 </p>
 
 ---
@@ -41,6 +40,10 @@ L’objectif est de comprendre :
 
 cub3D est un projet qui force à être rigoureux, ou à regarder son moteur se désintégrer visuellement.
 
+<p align="center">
+  <img src="assets/readme/Mandatory.gif" width="900">
+</p>
+
 ---
 
 ## Mon rôle & approche
@@ -65,7 +68,7 @@ Le but était de comprendre **pourquoi ça marche**.
 ## Ray-casting — Le cœur du moteur
 
 <p align="center">
-  <img src="assets/readme/Alic3D_Level1a.gif" width="900">
+  <img src="assets/readme/level1_1.gif" width="900">
 </p>
 
 Le principe du ray-casting est simple sur le papier :
@@ -89,7 +92,7 @@ Une erreur mathématique se voit immédiatement à l’écran.
 ## Parsing — Le fichier `.cub` comme contrat
 
 <p align="center">
-  <img src="assets/readme/Alic3D_Level1b.gif" width="900">
+  <img src="assets/readme/level1_2.gif" width="900">
 </p>
 
 La scène est décrite par un fichier `.cub` contenant :
@@ -107,12 +110,16 @@ Contraintes fortes :
 Le parsing est volontairement strict.  
 Un moteur instable commence presque toujours par une entrée mal contrôlée.
 
+<p align="center">
+  <img src="assets/readme/level1_3.gif" width="900">
+</p>
+
 ---
 
 ## Déplacements & perception
 
 <p align="center">
-  <img src="assets/readme/Alic3D_Level2.gif" width="900">
+  <img src="assets/readme/level2.gif" width="900">
 </p>
 
 Le joueur peut :
