@@ -191,7 +191,17 @@ cub3D démontre :
 
 ### Contributeur
 
-<td align="center">
-  <a href="https://github.com/BBoroboro"><strong>MathieuMoulin</strong></a>
-</td>
-
+<table align="center">
+  <tr>
+    <td align="center">
+      <a href="https://github.com/BBoroboro"><strong>MathieuMoulin</strong></a>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/BBoroboro">
+        <img src="https://github.com/BBoroboro.png?size=140" width="140" />
+      </a>
+    </td>
+  </tr>
+</table>
